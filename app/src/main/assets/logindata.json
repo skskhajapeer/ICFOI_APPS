@@ -1,0 +1,25 @@
+{
+  "users":[
+    {
+      "name":"Niyaz",
+      "email":"testemail1@gmail.com",
+      "contact":{
+        "mobile":"+91 0000000000"
+      }
+    },
+    {
+      "name":"Azhar",
+      "email":"testemail2@gmail.com",
+      "contact":{
+        "mobile":"+91 0000000000"
+      }
+    },
+    {
+      "name":"Mahi",
+      "email":"testemail3@gmail.com",
+      "contact":{
+        "mobile":"+91 0000000000"
+      }
+    }
+  ]
+}

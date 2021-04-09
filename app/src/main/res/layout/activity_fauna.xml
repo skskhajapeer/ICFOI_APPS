@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FaunaActivity"
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/contentRL"
+        tools:context="com.roomdb.example.StartupActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            app:title="@string/app_name"
+            />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/lnr_bottom"
+            android:layout_below="@+id/toolbar"
+            android:layout_margin="5dp"
+            android:clipToPadding="true"
+
+            android:fillViewport="true"
+            android:fitsSystemWindows="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:id="@+id/mainrel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/lnr_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            android:id="@+id/tvMovieTitle"
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="District" />
+
+                        <com.dev.materialspinner.MaterialSpinner
+                            android:id="@+id/dist_spinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_site"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_district"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            android:id="@+id/tvMovieDirectorFullName"
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Site" />
+
+                        <com.dev.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_site"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_site"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btn_select"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select start and End Time" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_stime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_start"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Start Time" />
+
+                        <TextView
+                            android:id="@+id/txt_stime"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_endtime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_stime"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="End Time" />
+
+                        <TextView
+                            android:id="@+id/txt_endtime"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_lat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_endtime"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Latitude" />
+
+                        <EditText
+                            android:id="@+id/et_lat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_long"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_lat"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Longitude" />
+
+                        <EditText
+                            android:id="@+id/et_long"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_observer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_long"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Observer" />
+
+                        <EditText
+                            android:id="@+id/et_observer"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_botanical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_observer"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Tree ID" />
+
+                        <EditText
+                            android:id="@+id/et_botanical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_botnical_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_botanical"
+                        android:orientation="horizontal"
+
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="District" />
+
+                        <com.dev.materialspinner.MaterialSpinner
+                            android:id="@+id/botanical_type"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lnr_gbh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_botnical_type"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Botanical Name" />
+
+                        <pl.utkala.searchablespinner.SearchableSpinner
+                            android:id="@+id/botanical_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:closeText="Close"
+                            app:dialogTitle="Search"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_hgt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_gbh"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="GBH" />
+
+                        <EditText
+                            android:id="@+id/et_gbh"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_height"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lnr_hgt"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:weightSum="6">
+
+                        <TextView
+                            style="@style/movie_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="HEIGHT" />
+
+                        <EditText
+                            android:id="@+id/et_height"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/lnr_bottom"
+            android:orientation="vertical">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fbChooseColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:gravity="end|right"
+                android:text="Choose Color" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Save" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

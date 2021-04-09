@@ -1,0 +1,701 @@
+{
+  "Sites": [
+    {
+      "Sl.No": "1",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Chintakunta",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Thirumalapur",
+      "Area (Ha)": "335.08",
+      "COMPARTMENT ": "313"
+    },
+    {
+      "Sl.No": "2",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Chippalturthy",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Thirumalapur, Chpalthurthy",
+      "Area (Ha)": "684.74",
+      "COMPARTMENT ": "308, 309"
+    },
+    {
+      "Sl.No": "3",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Donthi",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Shivampet",
+      "Area (Ha)": "340.37",
+      "COMPARTMENT ": "348"
+    },
+    {
+      "Sl.No": "4",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Gowararam",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Meenajipet",
+      "Area (Ha)": "206.39",
+      "COMPARTMENT ": "189"
+    },
+    {
+      "Sl.No": "5",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Hastalpur-I,Yeldurthy-II & III Cluster",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Yeldurthy",
+      "Area (Ha)": "1888.19",
+      "COMPARTMENT ": "45, 46, 48, 39, 40, 41, 42, 43"
+    },
+    {
+      "Sl.No": "6",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Islampur,Chetla Thimmaipally-II & PothamShettypally Cluster",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Datarpally",
+      "Area (Ha)": "381.96",
+      "COMPARTMENT ": "174, 175, 170"
+    },
+    {
+      "Sl.No": "7",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Malkapur-I, Chetla Thimmainpally-I, Datarpally, Gundareddypally & Pothanapally Cluster",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Datarpally, Induperial",
+      "Area (Ha)": "1044.52",
+      "COMPARTMENT ": "177, 178, 179, 181, 199, 176"
+    },
+    {
+      "Sl.No": "8",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Malkapur-II",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Induperial",
+      "Area (Ha)": "431.98",
+      "COMPARTMENT ": "197, 198"
+    },
+    {
+      "Sl.No": "9",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Manepally-I & II Cluster",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Andugulapally, Manepally",
+      "Area (Ha)": "1711.46",
+      "COMPARTMENT ": "54, 55, 56, 57, 58, 59"
+    },
+    {
+      "Sl.No": "10",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Mangalparthy-I",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Mangalparthy",
+      "Area (Ha)": "1365.99",
+      "COMPARTMENT ": " 49, 50, 51 "
+    },
+    {
+      "Sl.No": "11",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Mannewar jalalpur & Yeldurthy-I Cluster",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Yeldurthy",
+      "Area (Ha)": "119.49",
+      "COMPARTMENT ": "37, 38"
+    },
+    {
+      "Sl.No": "12",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Maqdumpur",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Shivampet",
+      "Area (Ha)": "284.91",
+      "COMPARTMENT ": "349"
+    },
+    {
+      "Sl.No": "13",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Narayanpur",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Narayanpur",
+      "Area (Ha)": "178.06",
+      "COMPARTMENT ": "312"
+    },
+    {
+      "Sl.No": "14",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Nathanipally",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Nathanipally",
+      "Area (Ha)": "158.36",
+      "COMPARTMENT ": "334"
+    },
+    {
+      "Sl.No": "15",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Nawabpet-I,II & III Cluster",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Nallavally",
+      "Area (Ha)": "453.25",
+      "COMPARTMENT ": "344, 345, 346"
+    },
+    {
+      "Sl.No": "16",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Parkibanda-II",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Manoharabad",
+      "Area (Ha)": "115",
+      "COMPARTMENT ": "186"
+    },
+    {
+      "Sl.No": "17",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Pillutla",
+      "RANGE": "Narsapur & Tupran",
+      "BEAT NAME": "Ratnapur, Pilutla, Brahmanpally, Shivampet",
+      "Area (Ha)": "4016.59",
+      "COMPARTMENT ": "315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327"
+    },
+    {
+      "Sl.No": "18",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Rangaipally",
+      "RANGE": "Tupran",
+      "BEAT NAME": "Meenajipet",
+      "Area (Ha)": "174.82",
+      "COMPARTMENT ": "188"
+    },
+    {
+      "Sl.No": "19",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Rustumpet-I",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Narayanpur",
+      "Area (Ha)": "302.11",
+      "COMPARTMENT ": "310, 311"
+    },
+    {
+      "Sl.No": "20",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Suraram",
+      "RANGE": "Ramayampet",
+      "BEAT NAME": "Shankarampet",
+      "Area (Ha)": "742.73",
+      "COMPARTMENT ": "171, 172"
+    },
+    {
+      "Sl.No": "21",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Thujalpur",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Thirumalapur",
+      "Area (Ha)": "161.47",
+      "COMPARTMENT ": "314"
+    },
+    {
+      "Sl.No": "22",
+      "DISTRICT": "Medak",
+      "DIVISION": "Medak",
+      "RF BLOCK": "Yellapur",
+      "RANGE": "Narsapur",
+      "BEAT NAME": "Nathanipally",
+      "Area (Ha)": "132.73",
+      "COMPARTMENT ": "356"
+    },
+    {
+      "Sl.No": "23",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Anantharam (UnNotified)",
+      "RANGE": "Shamirpet",
+      "BEAT NAME": "Laxmapur",
+      "Area (Ha)": "53.16",
+      "COMPARTMENT ": "238"
+    },
+    {
+      "Sl.No": "24",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Dhabeerpur",
+      "RANGE": "Dulapally",
+      "BEAT NAME": "Medchal",
+      "Area (Ha)": "321.81",
+      "COMPARTMENT ": "214"
+    },
+    {
+      "Sl.No": "25",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Edullabad",
+      "RANGE": "Uppal",
+      "BEAT NAME": "Medipally",
+      "Area (Ha)": "170.91",
+      "COMPARTMENT ": "253"
+    },
+    {
+      "Sl.No": "26",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Kistapur",
+      "RANGE": "Dulapally",
+      "BEAT NAME": "Medchal",
+      "Area (Ha)": "30.93"
+    },
+    {
+      "Sl.No": "27",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Koltur",
+      "RANGE": "Shamirpet",
+      "BEAT NAME": "Turkapally",
+      "Area (Ha)": "183.88",
+      "COMPARTMENT ": "237"
+    },
+    {
+      "Sl.No": "28",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Laxmapur -I",
+      "RANGE": "Shamirpet",
+      "BEAT NAME": "Laxmapur",
+      "Area (Ha)": "262.65",
+      "COMPARTMENT ": "239"
+    },
+    {
+      "Sl.No": "29",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Laxmapur-II & Morechintapally Cluster",
+      "RANGE": "Shamirpet",
+      "BEAT NAME": "Laxmapur",
+      "Area (Ha)": "364.71",
+      "COMPARTMENT ": "240, 241 "
+    },
+    {
+      "Sl.No": "30",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Medchel",
+      "RANGE": "Dulapally",
+      "BEAT NAME": "Medchal",
+      "Area (Ha)": "235.61",
+      "COMPARTMENT ": "216"
+    },
+    {
+      "Sl.No": "31",
+      "DISTRICT": "Medchel",
+      "DIVISION": "Medchel",
+      "RF BLOCK": "Ravalkole & Yadaram Cluster",
+      "RANGE": "Shamirpet & Dulapally",
+      "BEAT NAME": "Turkapally",
+      "Area (Ha)": "556.09",
+      "COMPARTMENT ": "220-222,240"
+    },
+    {
+      "Sl.No": "32",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Agapally, Gungal (Part), Nomul & Rangapur Cluster",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Gungal, Yacharam",
+      "Area (Ha)": "2197.72",
+      "COMPARTMENT ": "9876, 290, 292, 293, 294, 295, 296, 297, 298, 299,  300, 302, 304, 348   "
+    },
+    {
+      "Sl.No": "33",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Chittapur",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Dandumailarm",
+      "Area (Ha)": "267.5",
+      "COMPARTMENT ": "279"
+    },
+    {
+      "Sl.No": "34",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Dandumailaram-I,II & Hafeezpur (UN) Cluster",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Dandumailarm, Tippaiguda",
+      "Area (Ha)": "1283.42",
+      "COMPARTMENT ": "274, 275, 276"
+    },
+    {
+      "Sl.No": "35",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Gummedvelly",
+      "RANGE": "Kandukur",
+      "BEAT NAME": "Rachanoor",
+      "Area (Ha)": "867.26",
+      "COMPARTMENT ": "315, 317, 318"
+    },
+    {
+      "Sl.No": "36",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Imbrahimpatnam",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Ibrahimpatnam",
+      "Area (Ha)": "1018.55",
+      "COMPARTMENT ": "272"
+    },
+    {
+      "Sl.No": "37",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Japal",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Rangapur",
+      "Area (Ha)": "571.86",
+      "COMPARTMENT ": "284, 285, 286"
+    },
+    {
+      "Sl.No": "38",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Kadthal, Kurmidda, Mudwin & Tatparthy Cluster",
+      "RANGE": "Kandukur",
+      "BEAT NAME": "Tatparthy,Kadthal",
+      "Area (Ha)": "6108.623",
+      "COMPARTMENT ": "314, 426, 427, 440"
+    },
+    {
+      "Sl.No": "39",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Madhapur",
+      "RANGE": "Kandukur",
+      "BEAT NAME": "Rachanoor",
+      "Area (Ha)": "433.023",
+      "COMPARTMENT ": "319, 320"
+    },
+    {
+      "Sl.No": "40",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Shamshabad",
+      "RF BLOCK": "Malkaram",
+      "RANGE": "Shamshabad",
+      "BEAT NAME": "Gaganpahad",
+      "Area (Ha)": "224.31",
+      "COMPARTMENT ": "9876"
+    },
+    {
+      "Sl.No": "41",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Shamshabad",
+      "RF BLOCK": "Mamidipally",
+      "RANGE": "Shamshabad",
+      "BEAT NAME": "Kamadhan",
+      "Area (Ha)": "46.535",
+      "COMPARTMENT ": "411"
+    },
+    {
+      "Sl.No": "42",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Manchal",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Rangapur",
+      "Area (Ha)": "435.85",
+      "COMPARTMENT ": "281"
+    },
+    {
+      "Sl.No": "43",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Shamshabad",
+      "RF BLOCK": "Medpally",
+      "RANGE": "Chilkur",
+      "BEAT NAME": "Mudmiyal",
+      "Area (Ha)": "203.92",
+      "COMPARTMENT ": "196"
+    },
+    {
+      "Sl.No": "44",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Naganpally",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Ibrahimpatnam",
+      "Area (Ha)": "63.62"
+    },
+    {
+      "Sl.No": "45",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Patelgiri",
+      "RANGE": "Kandukur",
+      "BEAT NAME": "Phulmamidi",
+      "Area (Ha)": "152.07",
+      "COMPARTMENT ": "9876"
+    },
+    {
+      "Sl.No": "46",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Phulmamidi",
+      "RANGE": "Kandukur",
+      "BEAT NAME": "Phulmamidi",
+      "Area (Ha)": "490.125",
+      "COMPARTMENT ": "326, 328, 329"
+    },
+    {
+      "Sl.No": "47",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Polkampally",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Dandumailarm",
+      "Area (Ha)": "37.83"
+    },
+    {
+      "Sl.No": "48",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Porandla & Chiparlapalli Cluster",
+      "RANGE": "Amangal",
+      "BEAT NAME": "Phulmamidi",
+      "Area (Ha)": "786.5",
+      "COMPARTMENT ": "321, 323, 324, 9876"
+    },
+    {
+      "Sl.No": "49",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Shamshabad",
+      "RF BLOCK": "Raviryal",
+      "RANGE": "Mankhal",
+      "BEAT NAME": "Pahadisharif",
+      "Area (Ha)": "162.68",
+      "COMPARTMENT ": "348"
+    },
+    {
+      "Sl.No": "50",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Sahebnagar (UN)",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Ibrahimpatnam",
+      "Area (Ha)": "13",
+      "COMPARTMENT ": "266"
+    },
+    {
+      "Sl.No": "51",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Santhapur",
+      "RANGE": "Kandukur",
+      "BEAT NAME": "Chepunuthala",
+      "Area (Ha)": "353.298",
+      "COMPARTMENT ": "413"
+    },
+    {
+      "Sl.No": "52",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Tadlapallyguda & Tippalguda (UN) Cluster",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Dandumailarm",
+      "Area (Ha)": "220.89",
+      "COMPARTMENT ": "277, 278"
+    },
+    {
+      "Sl.No": "53",
+      "DISTRICT": "Rangareddy",
+      "DIVISION": "Amangal",
+      "RF BLOCK": "Yapal",
+      "RANGE": "Ibrahimpatnam",
+      "BEAT NAME": "Ibrahimpatnam",
+      "Area (Ha)": "91.45",
+      "COMPARTMENT ": "270"
+    },
+    {
+      "Sl.No": "54",
+      "DISTRICT": "Sangareddy",
+      "DIVISION": "Sangareddy",
+      "RF BLOCK": "Kanukunta",
+      "RANGE": "Sangareddy",
+      "BEAT NAME": "Kanukunta",
+      "Area (Ha)": "351.43",
+      "COMPARTMENT ": "347"
+    },
+    {
+      "Sl.No": "55",
+      "DISTRICT": "Sangareddy",
+      "DIVISION": "Sangareddy",
+      "RF BLOCK": "Kodakanchi & Pottaguda Cluster",
+      "RANGE": "Sangareddy",
+      "BEAT NAME": "Wailal",
+      "Area (Ha)": "402.31",
+      "COMPARTMENT ": "355, 354"
+    },
+    {
+      "Sl.No": "56",
+      "DISTRICT": "Sangareddy",
+      "DIVISION": "Sangareddy",
+      "RF BLOCK": "Machnoor",
+      "RANGE": "Sangareddy",
+      "BEAT NAME": "Nathanaipally",
+      "Area (Ha)": "146.49",
+      "COMPARTMENT ": "357"
+    },
+    {
+      "Sl.No": "57",
+      "DISTRICT": "Sangareddy",
+      "DIVISION": "Sangareddy",
+      "RF BLOCK": "Wailal",
+      "RANGE": "Sangareddy",
+      "BEAT NAME": "Wailal",
+      "Area (Ha)": "353.7",
+      "COMPARTMENT ": "350"
+    },
+    {
+      "Sl.No": "58",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Achaipally-I",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Chilasagar",
+      "Area (Ha)": "52.1",
+      "COMPARTMENT ": "289"
+    },
+    {
+      "Sl.No": "59",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Achaipally-II",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Chilasagar",
+      "Area (Ha)": "31.56",
+      "COMPARTMENT ": "288"
+    },
+    {
+      "Sl.No": "60",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Dasarlapally",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Chilasagar",
+      "Area (Ha)": "80.93",
+      "COMPARTMENT ": "190"
+    },
+    {
+      "Sl.No": "61",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Karkapatlam, Damarkunta & Kottial Cluster",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Damarkunta ",
+      "Area (Ha)": "992.18",
+      "COMPARTMENT ": "271, 272, 273, 274, 275, 276"
+    },
+    {
+      "Sl.No": "62",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Meenajipet",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Meenajipet",
+      "Area (Ha)": "1817.88",
+      "COMPARTMENT ": "190, 191, 192, 193, 194, 195, 196"
+    },
+    {
+      "Sl.No": "63",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Narsampally,Bailampur, Thanedarpally & Zapthisingaipally Cluster",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Chilasagar,Mulug",
+      "Area (Ha)": "2057.76",
+      "COMPARTMENT ": "277, 278, 279, 280, 281, 282, 283, 284, 285, 286"
+    },
+    {
+      "Sl.No": "64",
+      "DISTRICT": "Siddipet",
+      "DIVISION": "Siddipet",
+      "RF BLOCK": "Wargal",
+      "RANGE": "Gajwel",
+      "BEAT NAME": "Mulug",
+      "Area (Ha)": "55.84",
+      "COMPARTMENT ": "287"
+    },
+    {
+      "Sl.No": "65",
+      "DISTRICT": "Yadadri",
+      "DIVISION": "Yadadri",
+      "RF BLOCK": "Allapur (UnNotified)",
+      "RANGE": "Choutuppal",
+      "BEAT NAME": "Allapur",
+      "Area (Ha)": "249.59",
+      "COMPARTMENT ": "215"
+    },
+    {
+      "Sl.No": "66",
+      "DISTRICT": "Yadadri",
+      "DIVISION": "Yadadri",
+      "RF BLOCK": "Lakkaram I (UnNotified)",
+      "RANGE": "Choutuppal",
+      "BEAT NAME": "Choutuppal",
+      "Area (Ha)": "143.91",
+      "COMPARTMENT ": "220"
+    },
+    {
+      "Sl.No": "67",
+      "DISTRICT": "Yadadri",
+      "DIVISION": "Yadadri",
+      "RF BLOCK": "Malkapur-I (UnNotified)",
+      "RANGE": "Choutuppal",
+      "BEAT NAME": "Malkapur",
+      "Area (Ha)": "425.73",
+      "COMPARTMENT ": "216"
+    },
+    {
+      "Sl.No": "68",
+      "DISTRICT": "Yadadri",
+      "DIVISION": "Yadadri",
+      "RF BLOCK": "Malkapur-II (UnNotified)",
+      "RANGE": "Choutuppal",
+      "BEAT NAME": "Malkapur",
+      "Area (Ha)": "65.56",
+      "COMPARTMENT ": "217"
+    },
+    {
+      "Sl.No": "69",
+      "DISTRICT": "Yadadri",
+      "DIVISION": "Yadadri",
+      "RF BLOCK": "Meheranagar (UnNotified)",
+      "RANGE": "Choutuppal",
+      "BEAT NAME": "Malkapur",
+      "Area (Ha)": "167.94",
+      "COMPARTMENT ": "218"
+    },
+    {
+      "Sl.No": "70",
+      "DISTRICT": "Yadadri",
+      "DIVISION": "Yadadri",
+      "RF BLOCK": "Naginenipally",
+      "RANGE": "Bhoingiri",
+      "BEAT NAME": "Bibinagar",
+      "Area (Ha)": "111.89",
+      "COMPARTMENT ": "228"
+    }
+  ]
+}
