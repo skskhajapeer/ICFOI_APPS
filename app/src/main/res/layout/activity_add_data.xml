@@ -1,93 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contentRL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/contentRL"
     tools:context="com.roomdb.example.StartupActivity">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:background="@color/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        app:title="@string/app_name"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:layout_margin="5dp"
         android:clipToPadding="true"
-
         android:fillViewport="true"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <RelativeLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainrel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMovieTitle"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Serial No"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_slno"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvMovieTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
 
 
-            <RelativeLayout
-                android:id="@+id/mainrel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/district_title"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="District"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
+                app:layout_constraintWidth_percent="0.5" />
 
-                <LinearLayout
-                    android:id="@+id/lnr_slno"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp"
-                    android:weightSum="6">
+            <TextView
+                android:id="@+id/txt_dist"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                android:layout_weight="4"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBaseline_toBaselineOf="@id/district_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinner_slno"
+                app:layout_constraintWidth_percent="0.5" />
 
-                    <TextView
-                        android:id="@+id/tvMovieTitle"
-                        style="@style/movie_title"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Serial No" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/division_title"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Division"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/district_title"
+                app:layout_constraintWidth_percent="0.5" />
 
-                    <com.dev.materialspinner.MaterialSpinner
-                        android:id="@+id/spinner_slno"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4" />
-                </LinearLayout>
+            <TextView
+                android:id="@+id/txt_division"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBaseline_toBaselineOf="@id/division_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_dist"
+                app:layout_constraintWidth_percent="0.5" />
 
-                <LinearLayout
-                    android:id="@+id/lnr_long"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnr_slno"
-                    android:orientation="horizontal"
-                    android:padding="5dp"
-                    android:weightSum="6">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rf_block_title"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="RF Block"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/division_title"
+                app:layout_constraintWidth_percent="0.5" />
 
-                    <TextView
-                        style="@style/movie_title"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="District" />
+            <TextView
+                android:id="@+id/txt_rf_block"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBaseline_toBaselineOf="@id/rf_block_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_division"
+                app:layout_constraintWidth_percent="0.5" />
 
-                    <TextView
-                        android:id="@+id/txt_dist"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-                </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/range_title"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Range"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rf_block_title"
+                app:layout_constraintWidth_percent="0.5" />
 
-            </RelativeLayout>
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/txt_range"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintBaseline_toBaselineOf="@id/range_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_rf_block"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/beat_name_title"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Beat Name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/range_title"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <TextView
+                android:id="@+id/txt_beat_name"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_range"
+                app:layout_constraintBaseline_toBaselineOf="@id/beat_name_title"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/beat_area"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Area"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/beat_name_title"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <TextView
+                android:id="@+id/txt_area"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/beat_area"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/beat_area"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/compartment_title"
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Movie"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/beat_area"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <TextView
+                android:id="@+id/txt_compartment"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_area"
+                app:layout_constraintBaseline_toBaselineOf="@id/compartment_title"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/compartment_spinner"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_area"
+                app:layout_constraintBaseline_toBaselineOf="@id/compartment_title"
+                app:layout_constraintWidth_percent="0.5"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

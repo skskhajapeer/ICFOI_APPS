@@ -1,96 +1,82 @@
 package com.roomdb.example
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.dev.materialspinner.MaterialSpinner
-import kotlinx.android.synthetic.main.activity_add_data.*
-import org.json.JSONArray
-import org.json.JSONException
-import org.json.JSONObject
+import com.google.gson.Gson
+import com.roomdb.example.databinding.ActivityAddDataBinding
+import com.roomdb.example.model.AddDataModel
+import com.roomdb.example.model.Sites
 import java.io.IOException
 import java.nio.charset.Charset
 
 
 class AddingData : AppCompatActivity() {
     var slNumbers: ArrayList<String> = ArrayList()
-    private lateinit var slNoSpinner: MaterialSpinner
-    private var  passwordValue:String?=null
+    private lateinit var bindinggView : ActivityAddDataBinding
     private var distSpinnerValue: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_data)
-        slNoSpinner = findViewById(R.id.spinner_slno);
+        bindinggView = ActivityAddDataBinding.inflate(layoutInflater)
+        setContentView(bindinggView.root)
+
+        val gson = Gson()
+        val dataModel = gson.fromJson(loadJSONFromAsset(), AddDataModel::class.java)
 
 
-
-
-        try {
-            val obj = JSONObject(loadJSONFromAsset())
-            val userArray = obj.getJSONArray("Sites")
-
-
-
-
-            for (i in 0 until userArray.length()) {
-                val userDetail = userArray.getJSONObject(i)
-
-                val contact = userDetail.getString("Sl.No")
-                slNumbers.add(contact.toString())
+            for (i in 0 until dataModel.sites.size) {
+                val userDetail = dataModel.sites.get(i)
+                slNumbers.add(userDetail.slNo.toString())
 
                 val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, slNumbers)
                 aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                slNoSpinner.setAdapter(aa)
-
-
-
-                // slNumbers.add(userArray.getString(i).toString())
-
-               /* val contact = userDetail.getString("Sl.No")
-                slNumbers.add(contact.toString())
-               // mobileNumbers.add(contact.getString("mobile"))
-                Log.d("slNo", slNumbers.toString());
-
-                val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, slNumbers)
-                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                slNoSpinner.setAdapter(aa)
-
-                passwordValue=slNumbers.get(0);
-                Log.d("district", passwordValue.toString());*/
-
-
-
+                bindinggView.spinnerSlno.setAdapter(aa)
             }
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
 
-        slNoSpinner.getSpinner().onItemSelectedListener =
+
+        bindinggView.spinnerSlno.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-
                 }
-
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
                     id: Long
                 ) {
-
                     distSpinnerValue = parent!!.getItemAtPosition(position).toString()
-                    Log.d("spinpos",distSpinnerValue.toString())
                     slNumbers.filter { it==distSpinnerValue }
-
-
-
+                    setDataBasedOnSelection( dataModel.sites.get(position))
                 }
 
             }
+    }
+
+    fun setDataBasedOnSelection(siteInfo: Sites) {
+        bindinggView.txtDist.text = siteInfo.district
+        bindinggView.txtDivision.text = siteInfo.division
+        bindinggView.txtRfBlock.text = siteInfo.rfBlock
+        bindinggView.txtArea.text = ""+siteInfo.areaHa
+        bindinggView.txtBeatName.text = siteInfo.beatName
+        bindinggView.txtRange.text = siteInfo.range
+
+        if(siteInfo.compartment.contains(",")){
+            bindinggView.txtCompartment.visibility= View.GONE
+            bindinggView.compartmentSpinner.visibility= View.VISIBLE
+
+            val compartments = ArrayAdapter(this, android.R.layout.simple_spinner_item, siteInfo.compartment.split(","))
+            compartments.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.compartmentSpinner.setAdapter(compartments)
+
+
+        }else{
+            bindinggView.txtCompartment.text = siteInfo.compartment
+            bindinggView.compartmentSpinner.visibility = View.GONE
+        }
+
     }
 
     fun loadJSONFromAsset(): String {
