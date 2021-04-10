@@ -385,8 +385,9 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                     longitudevalues.text.toString(),
                     distSpinnerValue.toString(),
                     siteSpinnerValue.toString(),
-                    txt_stime.text.toString(),
-                    txt_endtime.text.toString(),
+                    "","",
+//                    txt_stime.text.toString(),
+//                    txt_endtime.text.toString(),
                     observervalue.text.toString(),
                     botanicalTypeValue.toString(),
                     treeValue.toString(),
@@ -679,8 +680,8 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                  endHourString,
                  endMinuteString
          )*/
-        txt_stime.text = startHourString + " " + startMinuteString
-        txt_endtime.text = endHourString + " " + endMinuteString
+//        txt_stime.text = startHourString + " " + startMinuteString
+//        txt_endtime.text = endHourString + " " + endMinuteString
     }
 
     private fun String.prependZero(): String {

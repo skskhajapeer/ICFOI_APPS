@@ -93,16 +93,16 @@ class SaveData : AppCompatActivity(), OnTimeRangeSelectedListener {
         startTimer = preferenceHelper.getStartTimer();
         endTimer = preferenceHelper.getEndTimer();
 
-        if (isNullOrEmpty(startTimer))
-            txt_stime.text = ""
-        else
-
-            txt_stime.text = startTimer
-        if (isNullOrEmpty(endTimer))
-            txt_endtime.text = ""
-        else
-
-            txt_endtime.text = endTimer
+//        if (isNullOrEmpty(startTimer))
+//            txt_stime.text = ""
+//        else
+//
+//            txt_stime.text = startTimer
+//        if (isNullOrEmpty(endTimer))
+//            txt_endtime.text = ""
+//        else
+//
+//            txt_endtime.text = endTimer
 
         if (distSpinnerValue !== null) {
 
@@ -202,8 +202,8 @@ class SaveData : AppCompatActivity(), OnTimeRangeSelectedListener {
 
             preferenceHelper.setApiKey(distSpinnerValue.toString())
             preferenceHelper.setUserId(siteSpinnerValue.toString())
-            preferenceHelper.setStartTimer(txt_stime.text.toString())
-            preferenceHelper.setEndTimer(txt_endtime.text.toString())
+//            preferenceHelper.setStartTimer(txt_stime.text.toString())
+//            preferenceHelper.setEndTimer(txt_endtime.text.toString())
 
         }
 
@@ -242,8 +242,8 @@ class SaveData : AppCompatActivity(), OnTimeRangeSelectedListener {
                  endHourString,
                  endMinuteString
          )*/
-        txt_stime.text = startHourString + " " + startMinuteString
-        txt_endtime.text = endHourString + " " + endMinuteString
+//        txt_stime.text = startHourString + " " + startMinuteString
+//        txt_endtime.text = endHourString + " " + endMinuteString
     }
 
     private fun String.prependZero(): String {

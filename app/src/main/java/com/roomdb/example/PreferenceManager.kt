@@ -24,6 +24,28 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         return preferences[START_TIMER] ?: ""
     }
 
+    override fun setDivision(division: String) {
+        preferences[DIVISION] = division
+    }
+    override fun getDivision(): String {
+        return preferences[DIVISION] ?: ""
+    }
+
+
+    override fun setSerialNo(slNo: String) {
+        preferences[SL_NO] = slNo
+    }
+    override fun getSerialNo(): String {
+        return preferences[SL_NO] ?: ""
+    }
+
+    override fun setDistrict(district: String) {
+        preferences[DISTRICT] = district
+    }
+    override fun getDistrict(): String {
+        return preferences[DISTRICT] ?: ""
+    }
+
     override fun setEndTimer(endTime: String) {
         preferences[END_TIMER] = endTime
     }
@@ -45,6 +67,9 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         const val SITE_VALUE = "site_value"
         const val START_TIMER="start_timer"
         const val END_TIMER="end_timer"
+        const val SL_NO="serial_no"
+        const val DIVISION="division"
+        const val DISTRICT="district"
     }
 }
 /**

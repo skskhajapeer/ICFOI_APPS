@@ -5,7 +5,7 @@
     android:id="@+id/contentRL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.roomdb.example.StartupActivity">
+   >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -25,6 +25,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_margin="5dp"
         android:clipToPadding="true"
+        android:id="@+id/scrollview"
         android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
@@ -125,6 +126,18 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_division"
                 app:layout_constraintWidth_percent="0.5" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/rfblock_spinner"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_margin="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_division"
+                app:layout_constraintBaseline_toBaselineOf="@id/rf_block_title"
+
+                app:layout_constraintWidth_percent="0.5"/>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/range_title"
@@ -369,6 +382,165 @@
                 app:layout_constraintBaseline_toBaselineOf="@id/tree_id_title"
                 app:layout_constraintRight_toRightOf="parent" />
 
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_margin="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tree_id_title"
+                app:layout_constraintWidth_percent="0.5" />
+
+
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/layout_botnical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:id="@+id/lnr_botnical_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Scientific Name" />
+
+            <com.dev.materialspinner.MaterialSpinner
+                android:id="@+id/botanical_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lnr_gbh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lnr_botnical_type"
+            app:layout_constraintWidth_percent="0.5">
+
+            <TextView
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Botanical Name" />
+
+            <pl.utkala.searchablespinner.SearchableSpinner
+                android:id="@+id/botanical_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                app:closeText="Close"
+                app:dialogTitle="Search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_hgt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lnr_gbh"
+            app:layout_constraintWidth_percent="0.5">
+
+            <TextView
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="GBH" />
+
+            <EditText
+                android:id="@+id/et_gbh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lnr_hgt"
+            app:layout_constraintWidth_percent="0.5">
+
+            <TextView
+                style="@style/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="HEIGHT" />
+
+            <EditText
+                android:id="@+id/et_height"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lnr_height"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fbChooseColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Choose Color"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
