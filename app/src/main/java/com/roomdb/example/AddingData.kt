@@ -249,7 +249,8 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     botanicalTypeValue.toString(),
                     treeValue.toString(),
                     bindinggView.etGbh.text.toString(),
-                    bindinggView.etHeight.text.toString()
+                    bindinggView.etHeight.text.toString(),
+                    "","","","","",""
                 )
 
             }
@@ -391,7 +392,13 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
         botanical: String,
         treeName: String,
         gbh: String,
-        height: String
+        height: String,
+        division:String,
+        rfblock:String,
+        range:String,
+        beat:String,
+        area:String,
+        compt:String
     ) {
         /* if (TextUtils.isEmpty(movieTitle) || TextUtils.isEmpty(movieDirectorFullName)) {
              return
@@ -548,7 +555,13 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     botVal = botanical,
                     treeName = treeName,
                     gbhVal = gbh,
-                    heightVal = height
+                    heightVal = height,
+                    divVal=division,
+                    rfBlock=rfblock,
+                    range=range,
+                    beatName=beat,
+                    areaName=area,
+                    comptName=compt
                 )
             )
             val intent = Intent(this, ResultActivity::class.java)
