@@ -17,4 +17,46 @@
     <string name="chosen_time_range">%1$s:%2$s - %3$s:%4$s</string>
     <string name="drawer_open">Drawer Open</string>
     <string name="close_drawer">Drawer_Close</string>
+
+    <array name="tree_names">
+        <item>Gyrocarpus americanus</item>
+        <item>Albizia amara</item>
+        <item>Chloroxylon swietenia</item>
+        <item>Azadirachta indica</item>
+        <item>Aegle marmelos</item>
+        <item>Cassia fistula</item>,
+        <item>Ziziphus oenoplia</item>
+        <item>Olax scandens</item>
+        <item>Grewia flavescens"</item>
+    </array>
+
+
+    <array name="herbs_names">
+        <item>Eriocaulon sp</item>
+        <item>Hyptis suaveolens</item>
+        <item>Crotalaria hebecarpa</item>
+        <item>Digitaria longiflora</item>
+        <item>Eragrostiella bifaria</item>
+        <item>Hybanthus enneasermus</item>
+        <item>Spermacoce articularis</item>
+        <item>Lindernia ciliata</item>
+        <item>Evolvulus alsinoides</item>
+        <item>Evolvulus alsinoides</item>
+        <item>Waltheria indica</item>
+        <item>Spermacoce articularis</item>
+        <item>Xyris indica</item>
+        <item>Phyllanthus virgatus</item>
+        <item>Trichuriella monsoniae</item>
+        <item>Setaria pumila</item>
+        <item>Eragrostiella bifaria</item>
+        <item>Sida spinosa</item>
+        <item>Sida cordata</item>
+        <item>Alysicarpus vaginalis</item>
+        <item>Melanocenchris jacquemontii</item>
+        <item>Hyptis suaveolens</item>
+        <item>Sida spinosa</item>
+        <item>Setaria pumila</item>
+        <item>Sida acuta</item>
+        <item>Hyptis suaveolens"</item>
+    </array>
 </resources>

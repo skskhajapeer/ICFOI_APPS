@@ -12,15 +12,16 @@ data class Sites(
     @SerializedName("BEAT NAME") val beatName: String,
     @SerializedName("Area (Ha)") val areaHa: Double,
     @SerializedName("COMPARTMENT") val compartment: String,
-    @SerializedName("START TIME") val startTime: String,
-    @SerializedName("END TIME") val endTime: String,
-    @SerializedName("LATITUDE") val latValue: String,
-    @SerializedName("LONGITUDE") val longitudeValue: String,
-    @SerializedName("OBSERVER") val observerValue: String,
-    @SerializedName("TREEID") val treeId: String,
-    @SerializedName("SCIENAME") val sciName: String,
-    @SerializedName("BOTNAME") val botanicalName: String,
-    @SerializedName("GBH") val gbhVal: String,
-    @SerializedName("HEIGHT") val heightVal: String
+
+    val startTime: String,
+    val endTime: String,
+    val latValue: String,
+    val longitudeValue: String,
+    val observerValue: String,
+    val treeId: String,
+    val sciName: String,
+    val botanicalName: String,
+    val gbhVal: String,
+    val heightVal: String
 
 )

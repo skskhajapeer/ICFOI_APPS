@@ -2,10 +2,12 @@ package com.roomdb.example
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.gson.GsonBuilder
+import com.roomdb.example.model.Sites
 
 open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     private val PREFS_NAME = "SharedPreferenceDemo"
-    private var preferences: SharedPreferences
+    public var preferences: SharedPreferences
     init {
         preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
@@ -16,34 +18,11 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         return preferences[DIST_VALUE] ?: ""
     }
 
-
     override fun setStartTimer(startTime: String) {
         preferences[START_TIMER] = startTime
     }
     override fun getStartTimer(): String {
         return preferences[START_TIMER] ?: ""
-    }
-
-    override fun setDivision(division: String) {
-        preferences[DIVISION] = division
-    }
-    override fun getDivision(): String {
-        return preferences[DIVISION] ?: ""
-    }
-
-
-    override fun setSerialNo(slNo: String) {
-        preferences[SL_NO] = slNo
-    }
-    override fun getSerialNo(): String {
-        return preferences[SL_NO] ?: ""
-    }
-
-    override fun setDistrict(district: String) {
-        preferences[DISTRICT] = district
-    }
-    override fun getDistrict(): String {
-        return preferences[DISTRICT] ?: ""
     }
 
     override fun setEndTimer(endTime: String) {
@@ -59,6 +38,14 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     override fun getUserId(): String {
         return preferences[SITE_VALUE] ?: ""
     }
+
+    override fun setProfileData(sites: Sites) {
+        preferences[ADD_DATA] = sites
+    }
+    override fun getProfileData(): Sites {
+        return preferences.get<Sites>(ADD_DATA) ?: Sites(0,"","","","","",
+            0.0,"","","","","","","","", "","","")
+    }
     override  fun clearPrefs() {
         preferences.edit().clear().apply()
     }
@@ -67,9 +54,34 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         const val SITE_VALUE = "site_value"
         const val START_TIMER="start_timer"
         const val END_TIMER="end_timer"
-        const val SL_NO="serial_no"
-        const val DIVISION="division"
-        const val DISTRICT="district"
+        const val ADD_DATA="end_timer"
+    }
+
+    /**
+     * Saves object into the Preferences.
+     *
+     * @param `object` Object of model class (of type [T]) to save
+     * @param key Key with which Shared preferences to
+     **/
+    fun <T> put(`object`: T, key: String) {
+        //Convert object to JSON String.
+        val jsonString = GsonBuilder().create().toJson(`object`)
+        //Save that String in SharedPreferences
+        preferences.edit().putString(key, jsonString).apply()
+    }
+
+    /**
+     * Used to retrieve object from the Preferences.
+     *
+     * @param key Shared Preference key with which object was saved.
+     **/
+    inline fun <reified T> get(key: String): T? {
+        //We read JSON String which was saved.
+        val value = preferences.getString(key, null)
+        //JSON String was found which means object can be read.
+        //We convert this JSON String to model object. Parameter "c" (of
+        //type Class < T >" is used to cast.
+        return GsonBuilder().create().fromJson(value, T::class.java)
     }
 }
 /**

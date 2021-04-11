@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c636d74cc27f33b0d321cac949935736",
+    "identityHash": "fae9b22754b802182f56d0ba70c37c63",
     "entities": [
       {
         "tableName": "movie",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `latVal` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `siteSpinner` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `latVal` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `siteSpinner` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL, `divVal` TEXT NOT NULL, `rfBlock` TEXT NOT NULL, `range` TEXT NOT NULL, `beatName` TEXT NOT NULL, `areaName` TEXT NOT NULL, `comptName` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -83,6 +83,42 @@
           {
             "fieldPath": "heightVal",
             "columnName": "heightVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "divVal",
+            "columnName": "divVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rfBlock",
+            "columnName": "rfBlock",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "range",
+            "columnName": "range",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beatName",
+            "columnName": "beatName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "areaName",
+            "columnName": "areaName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comptName",
+            "columnName": "comptName",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -189,6 +225,54 @@
               "heightVal"
             ],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_heightVal` ON `${TABLE_NAME}` (`heightVal`)"
+          },
+          {
+            "name": "index_movie_divVal",
+            "unique": false,
+            "columnNames": [
+              "divVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_divVal` ON `${TABLE_NAME}` (`divVal`)"
+          },
+          {
+            "name": "index_movie_rfBlock",
+            "unique": false,
+            "columnNames": [
+              "rfBlock"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_rfBlock` ON `${TABLE_NAME}` (`rfBlock`)"
+          },
+          {
+            "name": "index_movie_range",
+            "unique": false,
+            "columnNames": [
+              "range"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_range` ON `${TABLE_NAME}` (`range`)"
+          },
+          {
+            "name": "index_movie_beatName",
+            "unique": false,
+            "columnNames": [
+              "beatName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_beatName` ON `${TABLE_NAME}` (`beatName`)"
+          },
+          {
+            "name": "index_movie_areaName",
+            "unique": false,
+            "columnNames": [
+              "areaName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_areaName` ON `${TABLE_NAME}` (`areaName`)"
+          },
+          {
+            "name": "index_movie_comptName",
+            "unique": false,
+            "columnNames": [
+              "comptName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_movie_comptName` ON `${TABLE_NAME}` (`comptName`)"
           }
         ],
         "foreignKeys": []
@@ -232,7 +316,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c636d74cc27f33b0d321cac949935736')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fae9b22754b802182f56d0ba70c37c63')"
     ]
   }
 }

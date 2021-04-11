@@ -593,7 +593,9 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                     botVal = botanical,
                     treeName=treeName,
                     gbhVal = gbh,
-                    heightVal = height
+                    heightVal = height,
+                    divVal = "", rfBlock = "", range = "", beatName = "", areaName = "",
+                    comptName = "", id = 0
                 )
             )
             val intent = Intent(this, ResultActivity::class.java)

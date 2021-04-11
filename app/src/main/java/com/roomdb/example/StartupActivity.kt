@@ -533,8 +533,6 @@ class StartupActivity : AppCompatActivity(), OnTimeRangeSelectedListener,
                 }
             }
         } else {
-            // we can have many movies with same title but different director
-            // movieDao.insert(Movie(title = movieTitle, directorId = directorId, latVal="",distSpinner=""))
             movieDao.insert(
                 Movie(
                     title = movieTitle,
@@ -548,7 +546,9 @@ class StartupActivity : AppCompatActivity(), OnTimeRangeSelectedListener,
                     botVal = botanical,
                     treeName = treeName,
                     gbhVal = gbh,
-                    heightVal = height
+                    heightVal = height,
+                    divVal = "", rfBlock = "", range = "", beatName = "", areaName = "",
+                    comptName = "", id = 0
                 )
             )
             val intent = Intent(this, ResultActivity::class.java)

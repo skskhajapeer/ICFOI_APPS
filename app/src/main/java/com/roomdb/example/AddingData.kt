@@ -2,7 +2,6 @@ package com.roomdb.example
 
 import android.content.Intent
 import android.os.Bundle
-import android.service.autofill.VisibilitySetterAction
 import android.text.format.DateFormat
 import android.view.View
 import android.widget.AdapterView
@@ -14,9 +13,6 @@ import com.roomdb.example.db.Movie
 import com.roomdb.example.db.MoviesDatabase
 import com.roomdb.example.model.AddDataModel
 import com.roomdb.example.model.Sites
-import kotlinx.android.synthetic.main.activity_add_data.*
-import kotlinx.android.synthetic.main.activity_add_data.btn_save
-import kotlinx.android.synthetic.main.startup.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -35,7 +31,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
     private lateinit var bindinggView: ActivityAddDataBinding
     private var distSpinnerValue: String? = null
     private var botnicalValue: String? = null
-
+    private var siteInfo: Sites? = null
     private var slNoValue: String? = null
 
     private var botanicalTypeValue: String? = null
@@ -75,15 +71,12 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
 
             bindinggView.mainrel.setVisible(false)
             bindinggView.layoutBotnical.setVisible(true)
-//            preferenceHelper.setStartTimer(distSpinnerValue.toString())
-//
-//            preferenceHelper.setDistrict(bindinggView.txtDist.text.toString())
         }
 
 
 
         if (movieTitleExtra != null) {
-           bindinggView.etLat.setText(movieTitleExtra)
+            bindinggView.etLat.setText(movieTitleExtra)
             bindinggView.etLat.setSelection(movieTitleExtra!!.length)
         }
         if (movieDirectorFullNameExtra != null) {
@@ -109,7 +102,6 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
         }
 
 
-
         val botanicalTypes = listOf("Trees", "Shrubs", "Herbs")
         val botanicalAdapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_item, botanicalTypes)
@@ -133,17 +125,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     botanicalTypeValue = parent!!.getItemAtPosition(position).toString()
 
                     if (botanicalTypeValue == "Trees") {
-                        val treeNames = listOf(
-                            "Gyrocarpus americanus",
-                            "Albizia amara",
-                            "Chloroxylon swietenia",
-                            "Azadirachta indica",
-                            "Aegle marmelos",
-                            "Cassia fistula",
-                            "Ziziphus oenoplia",
-                            "Olax scandens",
-                            "Grewia flavescens"
-                        )
+                        val treeNames = listOf(resources.getStringArray(R.array.tree_names))
 
                         val botanicalTreeAdapter = ArrayAdapter(
                             applicationContext,
@@ -152,7 +134,8 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
-                        treeValue =  bindinggView.botanicalName.getItemAtPosition(position).toString()
+                        treeValue =
+                            bindinggView.botanicalName.getItemAtPosition(position).toString()
                     }
                     if (botanicalTypeValue == "Shrubs") {
                         val shrubNames = listOf(
@@ -166,39 +149,13 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
-                        treeValue =  bindinggView.botanicalName.getItemAtPosition(position).toString()
+                        treeValue =
+                            bindinggView.botanicalName.getItemAtPosition(position).toString()
 
                     }
 
                     if (botanicalTypeValue == "Herbs") {
-                        val herbNames = listOf(
-                            "Eriocaulon sp",
-                            "Hyptis suaveolens",
-                            "Crotalaria hebecarpa",
-                            "Digitaria longiflora",
-                            "Eragrostiella bifaria",
-                            "Hybanthus enneasermus",
-                            "Spermacoce articularis",
-                            "Lindernia ciliata",
-                            "Evolvulus alsinoides",
-                            "Evolvulus alsinoides",
-                            "Waltheria indica",
-                            "Spermacoce articularis",
-                            "Xyris indica",
-                            "Phyllanthus virgatus",
-                            "Trichuriella monsoniae",
-                            "Setaria pumila",
-                            "Eragrostiella bifaria",
-                            "Sida spinosa",
-                            "Sida cordata",
-                            "Alysicarpus vaginalis",
-                            "Melanocenchris  jacquemontii",
-                            "Hyptis suaveolens",
-                            "Sida spinosa",
-                            "Setaria pumila",
-                            "Sida acuta",
-                            "Hyptis suaveolens"
-                        )
+                        val herbNames = listOf(resources.getStringArray(R.array.herbs_names))
 
                         val botanicalTreeAdapter = ArrayAdapter(
                             applicationContext,
@@ -207,7 +164,8 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
-                        treeValue =  bindinggView.botanicalName.getItemAtPosition(position).toString()
+                        treeValue =
+                            bindinggView.botanicalName.getItemAtPosition(position).toString()
 
 
                     }
@@ -230,6 +188,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     distSpinnerValue = parent!!.getItemAtPosition(position).toString()
                     slNumbers.filter { it == distSpinnerValue }
                     setDataBasedOnSelection(dataModel.sites.get(position))
+                    siteInfo = dataModel.sites.get(position)
                 }
 
             }
@@ -238,7 +197,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
         bindinggView.btnSave.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
 
-                saveMovie(
+               val saveMove =  saveMovie(
                     bindinggView.etLat.text.toString(),
                     bindinggView.etLong.text.toString(),
                     distSpinnerValue.toString(),
@@ -250,8 +209,10 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     treeValue.toString(),
                     bindinggView.etGbh.text.toString(),
                     bindinggView.etHeight.text.toString(),
-                    "","","","","",""
+                    "", "", "", "", "", ""
                 )
+
+                siteInfo?.let { it1 -> preferenceHelper.setProfileData(it1) }
 
             }
 
@@ -267,6 +228,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
         bindinggView.txtArea.text = "" + siteInfo.areaHa
         bindinggView.txtBeatName.text = siteInfo.beatName
         bindinggView.txtRange.text = siteInfo.range
+
 
 
         if (siteInfo.rfBlock.contains(",")) {
@@ -288,22 +250,23 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
 
 
 
+        if (!siteInfo.compartment.isNullOrEmpty()) {
+            if (siteInfo.compartment.contains(",")) {
+                bindinggView.txtCompartment.visibility = View.GONE
+                bindinggView.compartmentSpinner.visibility = View.VISIBLE
 
-        if (siteInfo.compartment.contains(",")) {
-            bindinggView.txtCompartment.visibility = View.GONE
-            bindinggView.compartmentSpinner.visibility = View.VISIBLE
+                val compartments = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_spinner_item,
+                    siteInfo.compartment.split(",")
+                )
+                compartments.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                bindinggView.compartmentSpinner.setAdapter(compartments)
 
-            val compartments = ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                siteInfo.compartment.split(",")
-            )
-            compartments.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            bindinggView.compartmentSpinner.setAdapter(compartments)
-
-        } else {
-            bindinggView.txtCompartment.text = siteInfo.compartment
-            bindinggView.compartmentSpinner.visibility = View.GONE
+            } else {
+                bindinggView.txtCompartment.text = siteInfo.compartment
+                bindinggView.compartmentSpinner.visibility = View.GONE
+            }
         }
 
     }
@@ -367,6 +330,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
     private fun String.prependZero(): String {
         return "0".plus(this)
     }
+
     fun isNullOrEmpty(str: String?): Boolean {
         if (str != null && !str.trim().isEmpty())
             return false
@@ -393,12 +357,12 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
         treeName: String,
         gbh: String,
         height: String,
-        division:String,
-        rfblock:String,
-        range:String,
-        beat:String,
-        area:String,
-        compt:String
+        division: String,
+        rfblock: String,
+        range: String,
+        beat: String,
+        area: String,
+        compt: String
     ) {
         /* if (TextUtils.isEmpty(movieTitle) || TextUtils.isEmpty(movieDirectorFullName)) {
              return
@@ -556,19 +520,17 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     treeName = treeName,
                     gbhVal = gbh,
                     heightVal = height,
-                    divVal=division,
-                    rfBlock=rfblock,
-                    range=range,
-                    beatName=beat,
-                    areaName=area,
-                    comptName=compt
+                    divVal = division,
+                    rfBlock = rfblock,
+                    range = range,
+                    beatName = beat,
+                    areaName = area,
+                    comptName = compt
                 )
             )
             val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
         }
-
-
 
 
     }

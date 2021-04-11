@@ -1,7 +1,6 @@
 package com.roomdb.example.db
 
 import androidx.room.*
-import com.roomdb.example.PreferenceManager.Companion.DIVISION
 import com.roomdb.example.db.Movie.Companion.AREA
 import com.roomdb.example.db.Movie.Companion.BEATNAME
 import com.roomdb.example.db.Movie.Companion.BOTANICAL_VALUE
@@ -9,6 +8,7 @@ import com.roomdb.example.db.Movie.Companion.COMPARTMENT
 import com.roomdb.example.db.Movie.Companion.TITLE
 import com.roomdb.example.db.Movie.Companion.DIRECTOR_ID
 import com.roomdb.example.db.Movie.Companion.DIST_SPINNER
+import com.roomdb.example.db.Movie.Companion.DIVISION
 import com.roomdb.example.db.Movie.Companion.END_TIMER
 import com.roomdb.example.db.Movie.Companion.GBH_VALUE
 import com.roomdb.example.db.Movie.Companion.HEIGHT_VALUE

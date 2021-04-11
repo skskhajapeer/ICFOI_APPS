@@ -1,5 +1,7 @@
 package com.roomdb.example
 
+import com.roomdb.example.model.Sites
+
 interface IPreferenceHelper {
 
     fun setApiKey(apiKey: String)
@@ -13,15 +15,8 @@ interface IPreferenceHelper {
     fun setEndTimer(endTime: String)
     fun getEndTimer(): String
 
-
-    fun setSerialNo(slNo: String)
-    fun getSerialNo(): String
-
-    fun setDistrict(district: String)
-    fun getDistrict(): String
-
-    fun setDivision(division: String)
-    fun getDivision(): String
+    fun setProfileData(sites: Sites)
+    fun getProfileData(): Sites
 
 
     fun clearPrefs()
