@@ -40,7 +40,7 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     }
 
     override fun setProfileData(sites: Sites) {
-        preferences[ADD_DATA] = sites
+       put(sites,ADD_DATA)
     }
     override fun getProfileData(): Sites {
         return preferences.get<Sites>(ADD_DATA) ?: Sites(0,"","","","","",

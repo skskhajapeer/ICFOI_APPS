@@ -18,6 +18,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import me.adawoud.bottomsheettimepicker.BottomSheetTimeRangePicker
 import me.adawoud.bottomsheettimepicker.OnTimeRangeSelectedListener
+import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -33,7 +34,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
     private var botnicalValue: String? = null
     private var siteInfo: Sites? = null
     private var slNoValue: String? = null
-
+    var dataModel : AddDataModel? = null
     private var botanicalTypeValue: String? = null
     private var treeValue: String? = null
     private var movieTitleExtra: String? = null
@@ -50,20 +51,25 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
         bindinggView = ActivityAddDataBinding.inflate(layoutInflater)
         setContentView(bindinggView.root)
 
-        val gson = Gson()
-        val dataModel = gson.fromJson(loadJSONFromAsset(), AddDataModel::class.java)
+//        val file =  File("/data/data/com.roombd.example/shared_prefs/SharedPreferenceDemo.xml");
+//        if (file.exists()){
+//
+//           // dataModel = preferenceHelper.getProfileData()
+//
+//        }else {
 
+            val gson = Gson()
+             dataModel = gson.fromJson(loadJSONFromAsset(), AddDataModel::class.java)
+            for (i in 0 until dataModel?.sites?.size!!) {
+                val userDetail = dataModel?.sites?.get(i)
+                slNumbers.add(userDetail?.slNo.toString())
 
-        for (i in 0 until dataModel.sites.size) {
-            val userDetail = dataModel.sites.get(i)
-            slNumbers.add(userDetail.slNo.toString())
+                val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, slNumbers)
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                bindinggView.spinnerSlno.setAdapter(aa)
+ //           }
 
-            val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, slNumbers)
-            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            bindinggView.spinnerSlno.setAdapter(aa)
         }
-
-
 
 
 
@@ -134,8 +140,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
-                        treeValue =
-                            bindinggView.botanicalName.getItemAtPosition(position).toString()
+                        treeValue = bindinggView.botanicalName.getItemAtPosition(position).toString()
                     }
                     if (botanicalTypeValue == "Shrubs") {
                         val shrubNames = listOf(
@@ -149,8 +154,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
-                        treeValue =
-                            bindinggView.botanicalName.getItemAtPosition(position).toString()
+                        treeValue = bindinggView.botanicalName.getItemAtPosition(position).toString()
 
                     }
 
@@ -164,8 +168,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
-                        treeValue =
-                            bindinggView.botanicalName.getItemAtPosition(position).toString()
+                        treeValue = bindinggView.botanicalName.getItemAtPosition(position).toString()
 
 
                     }
@@ -187,8 +190,8 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                 ) {
                     distSpinnerValue = parent!!.getItemAtPosition(position).toString()
                     slNumbers.filter { it == distSpinnerValue }
-                    setDataBasedOnSelection(dataModel.sites.get(position))
-                    siteInfo = dataModel.sites.get(position)
+                    dataModel?.sites?.get(position)?.let { setDataBasedOnSelection(it) }
+                    siteInfo = dataModel?.sites?.get(position)
                 }
 
             }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/contentRL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -210,7 +209,7 @@
                 style="@style/movie_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Movie"
+                android:text="Compartment"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/beat_area"
                 app:layout_constraintWidth_percent="0.5" />
@@ -232,6 +231,7 @@
                 android:layout_width="0dp"
                 android:layout_height="26dp"
                 android:layout_margin="8dp"
+                android:visibility="gone"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_area"
                 app:layout_constraintBaseline_toBaselineOf="@id/compartment_title"
@@ -399,117 +399,106 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/layout_botnical"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        android:visibility="gone" >
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:visibility="gone">
 
-        <LinearLayout
-            android:id="@+id/lnr_botnical_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="6"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 style="@style/movie_title"
+                android:id="@+id/tv_specfic_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Scientific Name" />
+                android:text="Scientific Name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
 
             <com.dev.materialspinner.MaterialSpinner
                 android:id="@+id/botanical_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/lnr_gbh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="6"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lnr_botnical_type"
-            app:layout_constraintWidth_percent="0.5">
-
-            <TextView
-                style="@style/movie_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Botanical Name" />
-
-            <pl.utkala.searchablespinner.SearchableSpinner
-                android:id="@+id/botanical_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="4"
-                app:closeText="Close"
-                app:dialogTitle="Search" />
-        </LinearLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_specfic_name"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintWidth_percent="0.5"/>
 
-        <LinearLayout
-            android:id="@+id/lnr_hgt"
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/tv_titleP_botinical"
+            style="@style/movie_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="6"
+            android:layout_weight="2"
+            android:text="Botanical Name"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lnr_gbh"
-            app:layout_constraintWidth_percent="0.5">
+            app:layout_constraintTop_toBottomOf="@+id/tv_specfic_name"
+            app:layout_constraintWidth_percent="0.5"  />
 
-            <TextView
-                style="@style/movie_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="GBH" />
-
-            <EditText
-                android:id="@+id/et_gbh"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lnr_height"
-            android:layout_width="match_parent"
+        <pl.utkala.searchablespinner.SearchableSpinner
+            android:id="@+id/botanical_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="6"
+            app:closeText="Close"
+            app:dialogTitle="Search"
+            app:layout_constraintTop_toBottomOf="@+id/tv_specfic_name"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_titleP_botinical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.5"/>
+
+
+
+        <TextView
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="GBH"
+            android:id="@+id/tv_title_gbh"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titleP_botinical"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lnr_hgt"
-            app:layout_constraintWidth_percent="0.5">
+            app:layout_constraintWidth_percent="0.5"  />
 
-            <TextView
-                style="@style/movie_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="HEIGHT" />
+        <EditText
+            android:id="@+id/et_gbh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titleP_botinical"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_title_gbh"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
 
-            <EditText
-                android:id="@+id/et_height"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </LinearLayout>
+
+        <TextView
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_height"
+            android:layout_weight="2"
+            android:text="HEIGHT"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_gbh"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintWidth_percent="0.5"  />
+
+        <EditText
+            android:id="@+id/et_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_gbh"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_height"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
+
+
 
         <Button
             android:id="@+id/btn_save"
@@ -518,21 +507,7 @@
             android:text="Save"
             android:layout_margin="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lnr_height"
-            app:layout_constraintWidth_percent="0.5" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/fbChooseColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Choose Color"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintWidth_percent="0.5" />
+            app:layout_constraintTop_toBottomOf="@id/et_height" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
