@@ -177,14 +177,23 @@ class ResultActivity : AppCompatActivity() {
 
 
             // Header
-            writeRow(listOf("id","Latitude","Longitude","District","Site","StartTime","EndTime","Observer","Botanical","Tree Name","GBH","Height"))
+         //   writeRow(listOf("id","Latitude","Longitude","District","Site","StartTime","EndTime","Observer","Botanical","Tree Name","GBH","Height"))
+            writeRow(listOf("id","District","Division","RF Block","Range","Beat Name","Area","Compartment",
+
+                "Start Time","End Timer","Lattitude","Longitude","Observer","Botanical Name","GBH","Height"))
+
             moviesList.forEachIndexed { index, director ->
 //                writeRow(listOf(index, director.directorId,director.title,director.latVal,
 //                    director.distSpinner,director.siteSpinner,director.startTimer,director.endTimer))
 
-                writeRow(listOf(index,director.title,director.latVal,
+               /* writeRow(listOf(index,director.title,director.latVal,
                     director.distSpinner,director.siteSpinner,director.startTimer,director.endTimer,director.obsvrval,director.botVal,
-                    director.treeName,director.gbhVal,director.heightVal))
+                    director.treeName,director.gbhVal,director.heightVal))*/
+
+                writeRow(listOf(index,director.distSpinner,director.divVal,
+                    director.rfBlock,director.range,director.beatName,director.areaName,director.comptName,
+                    director.startTimer,director.endTimer,director.title,director.latVal,
+                    director.obsvrval,director.botVal,director.heightVal,director.heightVal))
             }
         }
     }

@@ -12,7 +12,6 @@ data class Sites(
     @SerializedName("BEAT NAME") val beatName: String,
     @SerializedName("Area (Ha)") val areaHa: Double,
     @SerializedName("COMPARTMENT") val compartment: String,
-
     val startTime: String,
     val endTime: String,
     val latValue: String,

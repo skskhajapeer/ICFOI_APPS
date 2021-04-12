@@ -33,11 +33,7 @@ class SplashActivity :AppCompatActivity() {
 
         // we used the postDelayed(Runnable, time) method
         // to send a message with a delayed time.
-        Handler().postDelayed({
-            val intent = Intent(this, AddingData::class.java)
-            startActivity(intent)
-            finish()
-        }, 5000) // 3000 is the delayed time in milliseconds.
+       // 3000 is the delayed time in milliseconds.
 
     }
 
@@ -62,6 +58,12 @@ class SplashActivity :AppCompatActivity() {
                     }
                 }
         }
+
+        Handler().postDelayed({
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 7000)
     }
 
     private fun requestPermission() {

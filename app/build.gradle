@@ -74,5 +74,5 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.github.DonMat:searchablespinner:v1.0.1'
-
+    implementation "androidx.security:security-crypto:1.0.0-alpha02"
 }

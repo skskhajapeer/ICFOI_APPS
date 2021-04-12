@@ -14,7 +14,7 @@ class SelectionActivity : AppCompatActivity() {
 
     fun floraClick(view : View){
 
-        val intent = Intent(this,StartupActivity::class.java)
+        val intent = Intent(this,AddingData::class.java)
         startActivity(intent)
     }
 }
