@@ -18,6 +18,14 @@ interface IPreferenceHelper {
     fun setProfileData(sites: Sites)
     fun getProfileData(): Sites
 
+    fun isLogin(islogin:Boolean)
+
+
+    fun setPassword(password: String)
+    fun getPassword(): String
+
+    fun setUserName(userName: String)
+    fun getUserName(): String
 
     fun clearPrefs()
 

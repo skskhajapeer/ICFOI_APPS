@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.roomdb.example.utils.AppPreferences
 import kotlinx.android.synthetic.main.activity_latlong.*
 
 class SplashActivity :AppCompatActivity() {
@@ -60,9 +61,20 @@ class SplashActivity :AppCompatActivity() {
         }
 
         Handler().postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            if (AppPreferences.isLogin) {
+                val intent = Intent(this, SelectionActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+               /* val intent = Intent(this, SelectionActivity::class.java)
+                startActivity(intent)
+                finish()*/
+
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }, 7000)
     }
 

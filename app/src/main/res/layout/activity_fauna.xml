@@ -1,395 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contentRL"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FaunaActivity"
-   >
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/contentRL"
-        tools:context="com.roomdb.example.StartupActivity">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:background="@color/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            app:title="@string/app_name"
-            />
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/lnr_bottom"
-            android:layout_below="@+id/toolbar"
-            android:layout_margin="5dp"
-            android:clipToPadding="true"
-
-            android:fillViewport="true"
-            android:fitsSystemWindows="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/app_name" />
 
 
-                <RelativeLayout
-                    android:id="@+id/mainrel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/site_title"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Site Name"
+            app:layout_constraintLeft_toLeftOf="parent"
 
-                    <LinearLayout
-                        android:id="@+id/lnr_district"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintWidth_percent="0.5" />
 
-                        <TextView
-                            android:id="@+id/tvMovieTitle"
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="District" />
+        <TextView
+            android:id="@+id/txt_dist"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_margin="8dp"
+            android:layout_weight="4"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Obulapur"
+            app:layout_constraintBaseline_toBaselineOf="@id/site_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
 
-                        <com.dev.materialspinner.MaterialSpinner
-                            android:id="@+id/dist_spinner"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4" />
-                    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/district_title"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="District"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/site_title"
+            app:layout_constraintWidth_percent="0.5" />
 
-
-                    <LinearLayout
-                        android:id="@+id/lnr_site"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_district"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            android:id="@+id/tvMovieDirectorFullName"
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Site" />
-
-                        <com.dev.materialspinner.MaterialSpinner
-                            android:id="@+id/spinner_site"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_start"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_site"
-                        android:gravity="center">
-
-                        <Button
-                            android:id="@+id/btn_select"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Select start and End Time" />
-                    </LinearLayout>
+        <TextView
+            android:id="@+id/txt_division"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_margin="8dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Rajanna Siricilla"
+            app:layout_constraintBaseline_toBaselineOf="@id/district_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_dist"
+            app:layout_constraintWidth_percent="0.5" />
 
 
-                    <LinearLayout
-                        android:id="@+id/lnr_stime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_start"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_select_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20"
+            android:text="Select start and End Time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/district_title" />
 
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Start Time" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_start_time"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Start Time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_select_time"
+            app:layout_constraintWidth_percent="0.5" />
 
-                        <TextView
-                            android:id="@+id/txt_stime"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4" />
-                    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_stime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            app:layout_constraintBaseline_toBaselineOf="@id/title_start_time"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_select_time"
+            app:layout_constraintWidth_percent="0.5" />
 
-                    <LinearLayout
-                        android:id="@+id/lnr_endtime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_stime"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/end_title"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="End Time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_start_time"
+            app:layout_constraintWidth_percent="0.5" />
 
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="End Time" />
-
-                        <TextView
-                            android:id="@+id/txt_endtime"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_lat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_endtime"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Latitude" />
-
-                        <EditText
-                            android:id="@+id/et_lat"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_long"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_lat"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Longitude" />
-
-                        <EditText
-                            android:id="@+id/et_long"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_observer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_long"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Observer" />
-
-                        <EditText
-                            android:id="@+id/et_observer"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_botanical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_observer"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Tree ID" />
-
-                        <EditText
-                            android:id="@+id/et_botanical"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_botnical_type"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_botanical"
-                        android:orientation="horizontal"
-
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="District" />
-
-                        <com.dev.materialspinner.MaterialSpinner
-                            android:id="@+id/botanical_type"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4" />
-                    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_end_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            app:layout_constraintBaseline_toBaselineOf="@id/end_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_start_time"
+            app:layout_constraintWidth_percent="0.5" />
 
 
-                    <LinearLayout
-                        android:id="@+id/lnr_gbh"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_botnical_type"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/latitude_title"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Latitude"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end_title"
+            app:layout_constraintWidth_percent="0.5" />
 
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Botanical Name" />
-
-                        <pl.utkala.searchablespinner.SearchableSpinner
-                            android:id="@+id/botanical_name"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            app:closeText="Close"
-                            app:dialogTitle="Search"
-                            android:layout_weight="4" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_hgt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_gbh"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="GBH" />
-
-                        <EditText
-                            android:id="@+id/et_gbh"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lnr_height"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lnr_hgt"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:weightSum="6">
-
-                        <TextView
-                            style="@style/movie_title"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="HEIGHT" />
-
-                        <EditText
-                            android:id="@+id/et_height"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-                    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_lat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@id/latitude_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_start_time"
+            app:layout_constraintWidth_percent="0.5" />
 
 
-                </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/longitude_title"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Longitude"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latitude_title"
+            app:layout_constraintWidth_percent="0.5" />
 
-            </RelativeLayout>
-        </androidx.core.widget.NestedScrollView>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_long"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@id/longitude_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latitude_title"
+            app:layout_constraintWidth_percent="0.5" />
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/tv_fauna_types"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Fauna Types"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/longitude_title"
+            app:layout_constraintWidth_percent="0.5" />
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:id="@+id/spinner_fauna"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/longitude_title"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <TextView
+            android:id="@+id/tv_titleP_botinical"
+            style="@style/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Botanical Name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fauna_types"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <pl.utkala.searchablespinner.SearchableSpinner
+            android:id="@+id/botanical_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:closeText="Close"
+            app:dialogTitle="Search"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fauna_types"
+            app:layout_constraintWidth_percent="0.5" />
+
+
+
+        <Button
+            android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/lnr_bottom"
-            android:orientation="vertical">
-
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/fbChooseColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:gravity="end|right"
-                android:text="Choose Color" />
-
-            <Button
-                android:id="@+id/btn_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Save" />
-        </LinearLayout>
-
-    </RelativeLayout>
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Save"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleP_botinical"
+            app:layout_constraintWidth_percent="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-</RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

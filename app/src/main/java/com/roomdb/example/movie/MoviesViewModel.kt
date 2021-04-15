@@ -14,11 +14,11 @@ class MoviesViewModel(application: Application) : AndroidViewModel(application) 
     private val directorDao: DirectorDao = MoviesDatabase.getDatabase(application).directorDao()
 
     val moviesList: LiveData<List<Movie>>
-    val directorsList: LiveData<List<Director>>
+  //  val directorsList: LiveData<List<Director>>
 
     init {
         moviesList = movieDao.allMovies
-        directorsList = directorDao.allDirectors
+   //     directorsList = directorDao.allDirectors
     }
 
     suspend fun insert(vararg movies: Movie) {

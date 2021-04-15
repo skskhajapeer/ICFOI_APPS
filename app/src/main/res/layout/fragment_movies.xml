@@ -19,13 +19,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:background="@android:color/holo_blue_dark"
         tools:listitem="@layout/item_list_movie" />
 
-    <Button
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
         android:layout_alignParentBottom="true"
+
+        android:weightSum="10">
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/btn_Export"
         android:text="Export" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:id="@+id/btn_Home"
+            android:text="Home" />
+    </LinearLayout>
 
 </RelativeLayout>

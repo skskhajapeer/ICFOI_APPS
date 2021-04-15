@@ -6,7 +6,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.roomdb.example.utils.AppPreferences
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -106,13 +108,35 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword!!.text.toString()
 
 
-            val username: Boolean = personName.contains(password)
-            val passwordValues: Boolean = emailId.contains(email)
 
-            if (username && passwordValues) {
+
+            if (AppPreferences.isLogin) {
+                AppPreferences.isLogin = false
+                AppPreferences.username = ""
+                AppPreferences.password = ""
+            }
+            else {
+
+                val username: Boolean = personName.contains(password)
+                val passwordValues: Boolean = emailId.contains(email)
+              preferenceHelper.setUserName(email)
+
+//                val username = etEmail.text.toString()
+//                val password = etPassword.text.toString()
+                if (username && passwordValues) {
+                    AppPreferences.isLogin = true
+                    AppPreferences.username = email
+                    AppPreferences.password = password
+                    val intent = Intent(applicationContext, SelectionActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "login failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+           /* if (username && passwordValues) {
                 val intent = Intent(applicationContext, SelectionActivity::class.java)
                 startActivity(intent)
-            }
+            }*/
         }
         else
             println("Not Equal")

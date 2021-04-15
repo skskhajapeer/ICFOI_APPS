@@ -26,7 +26,8 @@
         android:supportsRtl="true"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppThemeNew">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,15 +36,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
 
             </intent-filter>
         </activity>
+        <activity android:name=".FaunaActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
 
+            </intent-filter>
+        </activity>
         <activity android:name=".LatLongActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeLatest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,6 +63,7 @@
         </activity>
 
         <activity android:name=".AddingData"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeLatest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,6 +74,7 @@
 
 
         <activity android:name=".ResultActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeLatest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

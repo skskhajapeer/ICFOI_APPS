@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movies Room Example</string>
+    <string name="app_name">Species Demo</string>
     <string name="title_movies">Movies</string>
     <string name="title_directors">Directors</string>
     <string name="menu_item_delete_list_data">Delete list data</string>

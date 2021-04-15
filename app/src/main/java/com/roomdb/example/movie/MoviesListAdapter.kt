@@ -50,11 +50,23 @@ class MoviesListAdapter(private val parent: Activity) : RecyclerView.Adapter<Mov
             holder.tvGbh.text=movie.gbhVal
             holder.tvHeight.text=movie.heightVal
 
+
+            holder.tvDivision.text=movie.divVal
+            holder.tvRfBlock.text=movie.rfBlock
+            holder.tvBeatName.text=movie.beatName
+            holder.tvArea.text=movie.areaName
+            holder.tvScientific.text=movie.botVal
+
+
+
+
+
+
             // holder.directorText.text= movie.directorId
 
             runBlocking {
                 val directorFullName = withContext(Dispatchers.Default) {
-                    getDirectorFullName(movie)
+                    //getDirectorFullName(movie)
                 }
 
                // holder.directorText.text = directorFullName ?: ""
@@ -71,9 +83,9 @@ class MoviesListAdapter(private val parent: Activity) : RecyclerView.Adapter<Mov
         }
     }
 
-    private suspend fun getDirectorFullName(movie: Movie): String? {
+   /* private suspend fun getDirectorFullName(movie: Movie): String? {
         return MoviesDatabase.getDatabase(parent).directorDao().findDirectorById(movie.directorId)?.fullName
-    }
+    }*/
 
     override fun getItemCount(): Int {
         return if (movieList == null) {
@@ -96,6 +108,11 @@ class MoviesListAdapter(private val parent: Activity) : RecyclerView.Adapter<Mov
         val tvBotanical :TextView =itemView.findViewById(R.id.tvBotanical)
         val tvHeight :TextView =itemView.findViewById(R.id.tvHeight)
 
+        val tvDivision :TextView =itemView.findViewById(R.id.tvDivision)
+        val tvRfBlock :TextView =itemView.findViewById(R.id.tvRfBlock)
+        val tvBeatName :TextView =itemView.findViewById(R.id.tvBeat)
+        val tvArea :TextView =itemView.findViewById(R.id.tvArea)
+        val tvScientific :TextView =itemView.findViewById(R.id.tvScientific)
 
 
     }

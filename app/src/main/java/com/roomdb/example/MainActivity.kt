@@ -1,6 +1,5 @@
 package com.roomdb.example
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -8,15 +7,11 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.FileProvider
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.roomdb.example.db.MoviesDatabase
 import com.roomdb.example.db.rePopulateDb
-import com.roomdb.example.director.DirectorSaveDialogFragment
-import com.roomdb.example.director.DirectorsListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.Dispatchers
@@ -54,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     R.id.navigation_directors -> {
                         MOVIES_SHOWN = false
-                        showFragment(DirectorsListFragment.newInstance())
+                        //showFragment(DirectorsListFragment.newInstance())
                         return true
                     }
                 }
@@ -113,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         if (MOVIES_SHOWN) {
           //  (shownFragment as MoviesListFragment).removeData()
         } else {
-            (shownFragment as DirectorsListFragment).removeData()
+           // (shownFragment as DirectorsListFragment).removeData()
         }
     }
 
@@ -131,7 +126,7 @@ class MainActivity : AppCompatActivity() {
             if (MOVIES_SHOWN) {
                 //(shownFragment as MoviesListFragment).exportMoviesWithDirectorsToCSVFile(csvFile)
             } else {
-                (shownFragment as DirectorsListFragment).exportDirectorsToCSVFile(csvFile)
+                //(shownFragment as DirectorsListFragment).exportDirectorsToCSVFile(csvFile)
             }
 
         /*    val emailIntent: Intent = Intent(Intent.ACTION_SEND)

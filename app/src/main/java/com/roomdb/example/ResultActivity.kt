@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -21,6 +23,7 @@ import com.github.doyaaaaaken.kotlincsv.dsl.csvWriter
 import com.roomdb.example.db.Movie
 import com.roomdb.example.movie.MoviesListAdapter
 import com.roomdb.example.movie.MoviesViewModel
+import kotlinx.android.synthetic.main.fragment_movies.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -41,8 +44,19 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_movies)
        // initToolbar(getString(R.string.app_name))
         val recyclerView: RecyclerView = findViewById(R.id.recyclerview_movies)
-//        val mToolbar :Toolbar= findViewById(R.id.toolbar)
 
+        val btn_Export:Button=findViewById(R.id.btn_Export);
+//        val mToolbar :Toolbar= findViewById(R.id.toolbar)
+        btn_Export.setOnClickListener {
+
+            exportDatabaseToCSVFile()
+
+        }
+        btn_Home.setOnClickListener {
+
+            val intent = Intent(this, AddingData::class.java)
+            startActivity(intent)
+        }
 
         setSupportActionBar(findViewById(R.id.toolbar))
 
@@ -70,7 +84,7 @@ class ResultActivity : AppCompatActivity() {
             }
         )
 
-        moviesViewModel.directorsList.observe(this,
+       /* moviesViewModel.directorsList.observe(this,
             Observer { _ ->
                 // we need to refresh the movies list in case when director's name changed
                 moviesViewModel.moviesList.value?.let {
@@ -78,7 +92,7 @@ class ResultActivity : AppCompatActivity() {
                     moviesListAdapter.setMovieList(it)
                 }
             }
-        )
+        )*/
     }
 
 
@@ -178,9 +192,9 @@ class ResultActivity : AppCompatActivity() {
 
             // Header
          //   writeRow(listOf("id","Latitude","Longitude","District","Site","StartTime","EndTime","Observer","Botanical","Tree Name","GBH","Height"))
-            writeRow(listOf("id","District","Division","RF Block","Range","Beat Name","Area","Compartment",
+            writeRow(listOf("id","Date","District","Division","RF Block","Range","Beat Name","Area","Compartment",
 
-                "Start Time","End Timer","Lattitude","Longitude","Observer","Botanical Name","GBH","Height"))
+                "Start Time","End Timer","Lattitude","Longitude","Observer","Tree Type","Scientific Name","GBH","Height"))
 
             moviesList.forEachIndexed { index, director ->
 //                writeRow(listOf(index, director.directorId,director.title,director.latVal,
@@ -190,10 +204,10 @@ class ResultActivity : AppCompatActivity() {
                     director.distSpinner,director.siteSpinner,director.startTimer,director.endTimer,director.obsvrval,director.botVal,
                     director.treeName,director.gbhVal,director.heightVal))*/
 
-                writeRow(listOf(index,director.distSpinner,director.divVal,
+                writeRow(listOf(index,director.cDate,director.distSpinner,director.divVal,
                     director.rfBlock,director.range,director.beatName,director.areaName,director.comptName,
                     director.startTimer,director.endTimer,director.title,director.latVal,
-                    director.obsvrval,director.botVal,director.heightVal,director.heightVal))
+                    director.obsvrval,director.botVal,director.treeName,director.gbhVal,director.heightVal))
             }
         }
     }

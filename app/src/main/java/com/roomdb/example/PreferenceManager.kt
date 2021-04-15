@@ -7,6 +7,11 @@ import com.roomdb.example.model.Sites
 
 open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     private val PREFS_NAME = "SharedPreferenceDemo"
+
+
+
+
+
     public var preferences: SharedPreferences
     init {
         preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -46,6 +51,29 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         return preferences.get<Sites>(ADD_DATA) ?: Sites(0,"","","","","",
             0.0,"","","","","","","","", "","","")
     }
+
+    override fun isLogin(islogin: Boolean) {
+        preferences[IS_LOGIN]=islogin
+    }
+
+    override fun setPassword(password: String) {
+        preferences[PASSWORD] = password
+    }
+
+    override fun getPassword(): String {
+        return preferences[PASSWORD] ?: ""
+
+    }
+
+    override fun setUserName(userName: String) {
+        preferences[USERNAME] = userName
+    }
+
+    override fun getUserName(): String {
+        return preferences[USERNAME] ?: ""
+
+    }
+
     override  fun clearPrefs() {
         preferences.edit().clear().apply()
     }
@@ -55,6 +83,10 @@ open class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         const val START_TIMER="start_timer"
         const val END_TIMER="end_timer"
         const val ADD_DATA="end_timer"
+        const val IS_LOGIN="islogin"
+        const val USERNAME="username"
+        const val PASSWORD="password"
+
     }
 
     /**

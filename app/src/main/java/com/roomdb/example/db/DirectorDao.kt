@@ -9,14 +9,8 @@ import androidx.room.*
 @Dao
 interface DirectorDao {
 
-    @Query("SELECT * FROM director WHERE did = :id LIMIT 1")
-    suspend fun findDirectorById(id: Long): Director?
-
-    @Query("SELECT * FROM director WHERE full_name = :fullName LIMIT 1")
-    suspend fun findDirectorByName(fullName: String?): Director?
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(director: Director): Long
+    @Query("SELECT * FROM director WHERE title = :title LIMIT 1")
+    suspend fun findMovieByTitle(title: String?): Director?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(vararg directors: Director)
@@ -27,6 +21,6 @@ interface DirectorDao {
     @Query("DELETE FROM director")
     suspend fun deleteAll()
 
-    @get:Query("SELECT * FROM director ORDER BY full_name ASC")
-    val allDirectors: LiveData<List<Director>>
+    @get:Query("SELECT * FROM movie ORDER BY title ASC")
+    val allMovies: LiveData<List<Movie>>
 }

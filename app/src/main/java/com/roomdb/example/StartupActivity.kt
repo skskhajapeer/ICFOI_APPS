@@ -548,7 +548,7 @@ class StartupActivity : AppCompatActivity(), OnTimeRangeSelectedListener,
                     gbhVal = gbh,
                     heightVal = height,
                     divVal = "", rfBlock = "", range = "", beatName = "", areaName = "",
-                    comptName = "", id = 0
+                    comptName = "", id = 0,cDate = ""
                 )
             )
             val intent = Intent(this, ResultActivity::class.java)

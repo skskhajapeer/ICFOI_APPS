@@ -14,10 +14,10 @@ import com.roomdb.example.db.MoviesDatabase
 class DirectorsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val directorDao: DirectorDao = MoviesDatabase.getDatabase(application).directorDao()
-    val directorList: LiveData<List<Director>>
+ //   val directorList: LiveData<List<Director>>
 
     init {
-        directorList = directorDao.allDirectors
+       // directorList = directorDao.allDirectors
     }
 
     suspend fun insert(vararg directors: Director) {

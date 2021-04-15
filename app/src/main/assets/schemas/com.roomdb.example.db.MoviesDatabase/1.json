@@ -2,16 +2,22 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fae9b22754b802182f56d0ba70c37c63",
+    "identityHash": "5daeb73d05abb9d0a5904f30c4f8c4e5",
     "entities": [
       {
         "tableName": "movie",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `latVal` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `siteSpinner` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL, `divVal` TEXT NOT NULL, `rfBlock` TEXT NOT NULL, `range` TEXT NOT NULL, `beatName` TEXT NOT NULL, `areaName` TEXT NOT NULL, `comptName` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cDate` TEXT NOT NULL, `title` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `latVal` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `siteSpinner` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL, `divVal` TEXT NOT NULL, `rfBlock` TEXT NOT NULL, `range` TEXT NOT NULL, `beatName` TEXT NOT NULL, `areaName` TEXT NOT NULL, `comptName` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "mid",
             "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cDate",
+            "columnName": "cDate",
+            "affinity": "TEXT",
             "notNull": true
           },
           {
@@ -279,35 +285,279 @@
       },
       {
         "tableName": "director",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`did` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `full_name` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cDate` TEXT NOT NULL, `title` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `latVal` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `siteSpinner` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL, `divVal` TEXT NOT NULL, `rfBlock` TEXT NOT NULL, `range` TEXT NOT NULL, `beatName` TEXT NOT NULL, `areaName` TEXT NOT NULL, `comptName` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "did",
+            "columnName": "mid",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "fullName",
-            "columnName": "full_name",
+            "fieldPath": "cDate",
+            "columnName": "cDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "directorId",
+            "columnName": "directorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latVal",
+            "columnName": "latVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distSpinner",
+            "columnName": "distSpinner",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "siteSpinner",
+            "columnName": "siteSpinner",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startTimer",
+            "columnName": "startTimer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "obsvrval",
+            "columnName": "obsvrval",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endTimer",
+            "columnName": "endTimer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "botVal",
+            "columnName": "botVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "treeName",
+            "columnName": "treeName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gbhVal",
+            "columnName": "gbhVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightVal",
+            "columnName": "heightVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "divVal",
+            "columnName": "divVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rfBlock",
+            "columnName": "rfBlock",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "range",
+            "columnName": "range",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beatName",
+            "columnName": "beatName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "areaName",
+            "columnName": "areaName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comptName",
+            "columnName": "comptName",
             "affinity": "TEXT",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "did"
+            "mid"
           ],
           "autoGenerate": true
         },
         "indices": [
           {
-            "name": "index_director_full_name",
-            "unique": true,
+            "name": "index_director_title",
+            "unique": false,
             "columnNames": [
-              "full_name"
+              "title"
             ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_director_full_name` ON `${TABLE_NAME}` (`full_name`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_title` ON `${TABLE_NAME}` (`title`)"
+          },
+          {
+            "name": "index_director_directorId",
+            "unique": false,
+            "columnNames": [
+              "directorId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_directorId` ON `${TABLE_NAME}` (`directorId`)"
+          },
+          {
+            "name": "index_director_latVal",
+            "unique": false,
+            "columnNames": [
+              "latVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_latVal` ON `${TABLE_NAME}` (`latVal`)"
+          },
+          {
+            "name": "index_director_distSpinner",
+            "unique": false,
+            "columnNames": [
+              "distSpinner"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_distSpinner` ON `${TABLE_NAME}` (`distSpinner`)"
+          },
+          {
+            "name": "index_director_siteSpinner",
+            "unique": false,
+            "columnNames": [
+              "siteSpinner"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_siteSpinner` ON `${TABLE_NAME}` (`siteSpinner`)"
+          },
+          {
+            "name": "index_director_startTimer",
+            "unique": false,
+            "columnNames": [
+              "startTimer"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_startTimer` ON `${TABLE_NAME}` (`startTimer`)"
+          },
+          {
+            "name": "index_director_endTimer",
+            "unique": false,
+            "columnNames": [
+              "endTimer"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_endTimer` ON `${TABLE_NAME}` (`endTimer`)"
+          },
+          {
+            "name": "index_director_obsvrval",
+            "unique": false,
+            "columnNames": [
+              "obsvrval"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_obsvrval` ON `${TABLE_NAME}` (`obsvrval`)"
+          },
+          {
+            "name": "index_director_botVal",
+            "unique": false,
+            "columnNames": [
+              "botVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_botVal` ON `${TABLE_NAME}` (`botVal`)"
+          },
+          {
+            "name": "index_director_treeName",
+            "unique": false,
+            "columnNames": [
+              "treeName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_treeName` ON `${TABLE_NAME}` (`treeName`)"
+          },
+          {
+            "name": "index_director_gbhVal",
+            "unique": false,
+            "columnNames": [
+              "gbhVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_gbhVal` ON `${TABLE_NAME}` (`gbhVal`)"
+          },
+          {
+            "name": "index_director_heightVal",
+            "unique": false,
+            "columnNames": [
+              "heightVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_heightVal` ON `${TABLE_NAME}` (`heightVal`)"
+          },
+          {
+            "name": "index_director_divVal",
+            "unique": false,
+            "columnNames": [
+              "divVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_divVal` ON `${TABLE_NAME}` (`divVal`)"
+          },
+          {
+            "name": "index_director_rfBlock",
+            "unique": false,
+            "columnNames": [
+              "rfBlock"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_rfBlock` ON `${TABLE_NAME}` (`rfBlock`)"
+          },
+          {
+            "name": "index_director_range",
+            "unique": false,
+            "columnNames": [
+              "range"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_range` ON `${TABLE_NAME}` (`range`)"
+          },
+          {
+            "name": "index_director_beatName",
+            "unique": false,
+            "columnNames": [
+              "beatName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_beatName` ON `${TABLE_NAME}` (`beatName`)"
+          },
+          {
+            "name": "index_director_areaName",
+            "unique": false,
+            "columnNames": [
+              "areaName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_areaName` ON `${TABLE_NAME}` (`areaName`)"
+          },
+          {
+            "name": "index_director_comptName",
+            "unique": false,
+            "columnNames": [
+              "comptName"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_director_comptName` ON `${TABLE_NAME}` (`comptName`)"
           }
         ],
         "foreignKeys": []
@@ -316,7 +566,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fae9b22754b802182f56d0ba70c37c63')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5daeb73d05abb9d0a5904f30c4f8c4e5')"
     ]
   }
 }

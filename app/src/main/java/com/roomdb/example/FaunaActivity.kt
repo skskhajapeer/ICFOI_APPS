@@ -11,9 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import com.dev.materialspinner.MaterialSpinner
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.gson.Gson
+import com.roomdb.example.databinding.ActivityAddDataBinding
+import com.roomdb.example.databinding.ActivityFaunaBinding
 import com.roomdb.example.db.Movie
 import com.roomdb.example.db.MoviesDatabase
 import com.roomdb.example.dialog.ColorPickerDialog
+import com.roomdb.example.model.AddDataModel
+import com.roomdb.example.model.Sites
+import com.roomdb.example.utils.AppPreferences
 import kotlinx.android.synthetic.main.activity_startup.*
 import kotlinx.android.synthetic.main.startup.*
 import kotlinx.coroutines.Dispatchers
@@ -24,74 +31,84 @@ import me.adawoud.bottomsheettimepicker.OnTimeRangeSelectedListener
 import pl.utkala.searchablespinner.SearchableSpinner
 import java.io.IOException
 import java.nio.charset.Charset
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
-class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
-    AdapterView.OnItemSelectedListener {
-    private val tagBottomSheetTimeRangePicker = "tagBottomSheetTimeRangePicker"
-    private lateinit var distSpinner: MaterialSpinner
-    private lateinit var spinner_site: MaterialSpinner
-    private lateinit var botanical_type: MaterialSpinner
-    private lateinit var botanical_name: SearchableSpinner
-    val list_of_items =
-        arrayOf("Select Country", "Hyderabad", "Secunderabad", "RangaReddy", "Yadadri")
-    val list_of_sites = arrayOf("Select Site", "Siteone", "Sitetwo", "Sitethree")
-    private var movieTitleExtra: String? = null
-    private var movieDirectorFullNameExtra: String? = null
-    private var latValueExtra: String? = null
-    private var observerValue: String? = null;
+class FaunaActivity :AppCompatActivity(),  OnTimeRangeSelectedListener {
+    var slNumbers: ArrayList<String> = ArrayList()
 
-    private var latValue: String? = null
-    private var distSpinnerValue: String? = null
-
-    private var siteSpinnerValue: String? = null
-
-    private var startTimerValue: String? = null
-    private var endTimerValue: String? = null
-    private var botnicalValue: String? = null
-
-    private var gbhValue: String? = null
-    private var heightValue: String? = null
     private val preferenceHelper: IPreferenceHelper by lazy { PreferenceManager(applicationContext) }
 
+    private val tagBottomSheetTimeRangePicker = "tagBottomSheetTimeRangePicker"
+    private lateinit var bindinggView: ActivityFaunaBinding
+    private var distSpinnerValue: String? = null
+    private var botnicalValue: String? = null
+    private var siteInfo: Sites? = null
+    private var slNoValue: String? = null
+    var dataModel: AddDataModel? = null
     private var botanicalTypeValue: String? = null
-
     private var treeValue: String? = null
+    private var movieTitleExtra: String? = null
+    private var movieDirectorFullNameExtra: String? = null
+    private var observerValue: String? = null;
+    private var gbhValue: String? = null
+    private var heightValue: String? = null
+    private var latValue: String? = null
+    private var siteSpinnerValue: String? = null
+    private var startTimerValue: String? = null
+    private var endTimerValue: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fauna)
-        val selectTime = findViewById<Button>(R.id.btn_select)
-        distSpinner = findViewById(R.id.dist_spinner);
-        spinner_site = findViewById(R.id.spinner_site);
-        botanical_type = findViewById(R.id.botanical_type);
-        botanical_name = findViewById(R.id.botanical_name);
-
-
+        bindinggView = ActivityFaunaBinding.inflate(layoutInflater)
+        setContentView(bindinggView.root)
+        val emailId = findViewById<TextView>(R.id.userEmailTv);
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
+        val current = LocalDateTime.now()
+
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val currentDate = current.format(formatter)
+        Log.d("date",currentDate)
+
+        /*  if (!preferenceHelper.getUserName().isEmpty()) {
+
+              emailId.text = preferenceHelper.getUserName()
+          }*/
+
         val mDrawerToggle = ActionBarDrawerToggle(
             this,
-            drawerLayout,
+            bindinggView.contentRL,
             toolbar,
             R.string.drawer_open,
             R.string.close_drawer
         )
 
-        drawerLayout.setDrawerListener(mDrawerToggle)
+        bindinggView.contentRL.setDrawerListener(mDrawerToggle)
         mDrawerToggle.syncState()
 
         navigationItemSelect()
 
-        val botanicalTypes = listOf("Birds", "Mammals", "Herpetofauna","Insects","Threats")
+        AppPreferences.isLogin = true
+
+//        val file =  File("/data/data/com.roombd.example/shared_prefs/SharedPreferenceDemo.xml");
+//        if (file.exists()){
+//
+//           // dataModel = preferenceHelper.getProfileData()
+//
+//        }else {
+
+        val botanicalTypes = listOf("Birds", "Mammals", "Herpetofauna")
         val botanicalAdapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_item, botanicalTypes)
         botanicalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        botanical_type.setAdapter(botanicalAdapter)
+        bindinggView.spinnerFauna.setAdapter(botanicalAdapter)
 
 
-        botanical_type.getSpinner().onItemSelectedListener =
+        bindinggView.botanicalName.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -143,7 +160,7 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                             birdNames
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        botanical_name.setAdapter(botanicalTreeAdapter)
+                        bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
                         treeValue = botanical_name.getItemAtPosition(position).toString()
                     }
                     if (botanicalTypeValue == "Mammals") {
@@ -156,7 +173,7 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                             mammalNames
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        botanical_name.setAdapter(botanicalTreeAdapter)
+                        bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
                         treeValue = botanical_name.getItemAtPosition(position).toString()
 
                     }
@@ -180,7 +197,7 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                             herbNames
                         )
                         botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                        botanical_name.setAdapter(botanicalTreeAdapter)
+                        bindinggView.botanicalName.setAdapter(botanicalTreeAdapter)
                         treeValue = botanical_name.getItemAtPosition(position).toString()
 
 
@@ -215,156 +232,16 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                 }
 
             }
-        /*  try {
-              val obj = JSONObject(loadJSONFromAsset())
-             val userArray = obj.getJSONObject("Flora")
 
 
-                 for (i in 0 until userArray.length()) {
+        setUIData()
 
-                     val mylist: JSONArray? = userArray.getJSONArray(i)
-                     val countriesArrayList = ArrayList<String>()
-                     countriesArrayList.add(mylist.toString())
-                     for (j in countriesArrayList)
-                     botanicalTypes.add(countriesArrayList.toString());
-                     // flordata=userDetail.getString("name")
-                     Log.d("flora", flordata.toString())
-
-
-                 }
-          } catch (e: JSONException) {
-              e.printStackTrace()
-          }*/
+    }
 
 
 
-
-        distSpinner.getSpinner().onItemSelectedListener = this
-        spinner_site.getSpinner().onItemSelectedListener = this
-//        botanical_type.getSpinner().onItemSelectedListener = this
-
-
-        val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, list_of_items)
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        distSpinner.setAdapter(aa)
-
-
-        distSpinner.getSpinner().onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-
-                    if (position == 0) {
-                        distSpinner.setError("Please select Country")
-                    } else {
-                        distSpinnerValue = parent!!.getItemAtPosition(position).toString()
-                        Log.d("spinnervalue", distSpinnerValue!!);
-                        distSpinner.setErrorEnabled(false)
-                        distSpinner.setLabel("Country")
-
-                    }
-
-                }
-
-            }
-        val bb = ArrayAdapter(this, android.R.layout.simple_spinner_item, list_of_sites)
-        bb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_site.setAdapter(bb)
-
-
-        spinner_site.getSpinner().onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
-
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-
-                    if (position == 0) {
-                        spinner_site.setError("Please select Site")
-                    } else {
-                        siteSpinnerValue = parent!!.getItemAtPosition(position).toString()
-                        Log.d("spinnervalue", siteSpinnerValue!!);
-                        spinner_site.setErrorEnabled(false)
-                        spinner_site.setLabel("Site")
-
-                    }
-
-                }
-
-            }
-        fbChooseColor.setOnClickListener {
-            showColorDialog()
-        }
-
-        val latvalues = findViewById<EditText>(R.id.et_lat)
-        val longitudevalues = findViewById<EditText>(R.id.et_long)
-        val observervalue = findViewById<EditText>(R.id.et_observer)
-
-        //   val botanicalvalue =findViewById<EditText>(R.id.et_botanical_name)
-        val ghbvalue = findViewById<EditText>(R.id.et_gbh)
-        val heightvalue = findViewById<EditText>(R.id.et_height)
-
-        val latlongData = preferenceHelper.getUserId()
-        val longitudeData = preferenceHelper.getStartTimer()
-        Log.d("latval", latlongData);
-        Log.d("longval", longitudeData);
-
-        latvalues.setText(preferenceHelper.getUserId())
-        longitudevalues.setText(preferenceHelper.getStartTimer())
-        if (movieTitleExtra != null) {
-            latvalues.setText(movieTitleExtra)
-            latvalues.setSelection(movieTitleExtra!!.length)
-        }
-        if (movieDirectorFullNameExtra != null) {
-            longitudevalues.setText(movieDirectorFullNameExtra)
-            longitudevalues.setSelection(movieDirectorFullNameExtra!!.length)
-        }
-        if (observerValue != null) {
-            observervalue.setText(observerValue)
-            observervalue.setSelection(observerValue!!.length)
-        }
-        /* if (botnicalValue != null) {
-             botanicalvalue.setText(botnicalValue)
-             botanicalvalue.setSelection(botnicalValue!!.length)
-         }*/
-        if (gbhValue != null) {
-            ghbvalue.setText(gbhValue)
-            ghbvalue.setSelection(gbhValue!!.length)
-        }
-
-        if (heightValue != null) {
-            heightvalue.setText(heightValue)
-            heightvalue.setSelection(heightValue!!.length)
-        }
-
-        /* if (endTimerValue != null) {
-             txt_endtime.setText(endTimerValue)
-         }
-         if (startTimerValue != null) {
-             txt_stime.text(startTimerValue)
-         }
- */
-        /*  if (siteSpinnerValue != null) {
-              latvalues.setText(latValue)
-              latvalues.setSelection(latValue!!.length)
-          }*/
-
-
-        selectTime.setOnClickListener {
+    fun setUIData() {
+        bindinggView.btnSelectTime.setOnClickListener(View.OnClickListener {
             BottomSheetTimeRangePicker
                 .tabLabels(startTabLabel = "Start Time", endTabLabel = "End Time")
                 .doneButtonLabel("Ok")
@@ -374,34 +251,72 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                 .endTimeInitialMinute(22)
                 .newInstance(this, DateFormat.is24HourFormat(this))
                 .show(supportFragmentManager, tagBottomSheetTimeRangePicker)
+        })
+
+        bindinggView.etLat.setText(preferenceHelper.getUserId())
+        bindinggView.etLong.setText(preferenceHelper.getStartTimer())
+
+    }
+
+    fun loadJSONFromAsset(): String {
+        val json: String?
+        try {
+            val inputStream = assets.open("faundata.json")
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            val charset: Charset = Charsets.UTF_8
+            inputStream.read(buffer)
+            inputStream.close()
+            json = String(buffer, charset)
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return ""
+        }
+        return json
+    }
+
+    override fun onTimeRangeSelected(
+        startHour: Int,
+        startMinute: Int,
+        endHour: Int,
+        endMinute: Int
+    ) {
+        var startHourString = startHour.toString()
+        var startMinuteString = startMinute.toString()
+        var endHourString = endHour.toString()
+        var endMinuteString = endMinute.toString()
+        when {
+            startHour < 9 -> startHourString = startHour.toString().prependZero()
+            startMinute < 9 -> startMinuteString = startMinute.toString().prependZero()
+            endHour < 9 -> endHourString = endHour.toString().prependZero()
+            endMinute < 9 -> endMinuteString = endMinute.toString().prependZero()
         }
 
+        bindinggView.txtStime.text = startHourString + " " + startMinuteString
+        bindinggView.txtEndTime.text = endHourString + " " + endMinuteString
+    }
 
-        btn_save.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
+    private fun String.prependZero(): String {
+        return "0".plus(this)
+    }
 
-                saveMovie(
-                    latvalues.text.toString(),
-                    longitudevalues.text.toString(),
-                    distSpinnerValue.toString(),
-                    siteSpinnerValue.toString(),
-                    "","",
-//                    txt_stime.text.toString(),
-//                    txt_endtime.text.toString(),
-                    observervalue.text.toString(),
-                    botanicalTypeValue.toString(),
-                    treeValue.toString(),
-                    ghbvalue.text.toString(),
-                    heightvalue.text.toString()
-                )
+    fun isNullOrEmpty(str: String?): Boolean {
+        if (str != null && !str.trim().isEmpty())
+            return false
+        return true
+    }
 
-            }
-
+    fun View.setVisible(visible: Boolean) {
+        visibility = if (visible) {
+            View.VISIBLE
+        } else {
+            View.GONE
         }
     }
 
     private suspend fun saveMovie(
         movieTitle: String,
+        cDate:String,
         latlongvalue: String,
         distSpinner: String,
         siteSpinner: String,
@@ -409,9 +324,15 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
         endTimer: String,
         observerval: String,
         botanical: String,
-        treeName:String,
+        treeName: String,
         gbh: String,
-        height: String
+        height: String,
+        division: String,
+        rfblock: String,
+        range: String,
+        beat: String,
+        area: String,
+        compt: String
     ) {
         /* if (TextUtils.isEmpty(movieTitle) || TextUtils.isEmpty(movieDirectorFullName)) {
              return
@@ -419,25 +340,6 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
         val directorDao = MoviesDatabase.getDatabase(this).directorDao()
         val movieDao = MoviesDatabase.getDatabase(this).movieDao()
         var directorId: Long = -1L
-        /*if (movieDirectorFullNameExtra != null) {
-             // clicked on item row -> update
-             val directorToUpdate = directorDao.findDirectorByName(movieDirectorFullNameExtra)
-             if (directorToUpdate != null) {
-                 directorId = directorToUpdate.id
-                 if (directorToUpdate.fullName != movieDirectorFullName) {
-                     directorToUpdate.fullName = movieDirectorFullName
-                     directorDao.update(directorToUpdate)
-
-
-                 }
-             }
-         } else {
-             // we need director id for movie object; in case director is already in DB,
-             // insert() would return -1, so we manually check if it exists and get
-             // the id of already saved director
-             val newDirector = directorDao.findDirectorByName(movieDirectorFullName)
-             directorId = newDirector?.id ?: directorDao.insert(Director(fullName = movieDirectorFullName))
-         }*/
 
         if (movieTitleExtra != null) {
             // clicked on item row -> update
@@ -534,9 +436,7 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                         movieDao.update(movieToUpdate)
                     }
                 }
-            }
-
-            else if (treeValue != null) {
+            } else if (treeValue != null) {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(treeValue)
                 if (movieToUpdate != null) {
@@ -548,11 +448,7 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                         movieDao.update(movieToUpdate)
                     }
                 }
-            }
-
-
-
-            else if (gbhValue != null) {
+            } else if (gbhValue != null) {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(gbhValue)
                 if (movieToUpdate != null) {
@@ -591,159 +487,25 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
                     endTimer = endTimer,
                     obsvrval = observerval,
                     botVal = botanical,
-                    treeName=treeName,
+                    treeName = treeName,
                     gbhVal = gbh,
                     heightVal = height,
-                    divVal = "", rfBlock = "", range = "", beatName = "", areaName = "",
-                    comptName = "", id = 0
+                    divVal = division,
+                    rfBlock = rfblock,
+                    range = range,
+                    beatName = beat,
+                    areaName = area,
+                    comptName = compt,
+                    cDate=cDate
                 )
             )
             val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
         }
 
-        /*if (latValue != null) {
-            // clicked on item row -> update
-            val movieToUpdate = movieDao.findMovieByTitle(latValue)
-            if (movieToUpdate != null) {
-                if (movieToUpdate.latVal != latlongvalue) {
-                    movieToUpdate.latVal = latlongvalue
-                    if (directorId != -1L) {
-                        movieToUpdate.latVal = latlongvalue
-                    }
-                    movieDao.update(movieToUpdate)
-                }
-            }
-
-            else  if (distSpinnerValue != null) {
-                // clicked on item row -> update
-                val movieToUpdate = movieDao.findMovieByTitle(distSpinnerValue)
-                if (movieToUpdate != null) {
-                    if (movieToUpdate.distSpinner != distSpinner) {
-                        movieToUpdate.distSpinner = distSpinner
-                        if (directorId != -1L) {
-                            movieToUpdate.distSpinner = distSpinner
-                        }
-                        movieDao.update(movieToUpdate)
-                    }
-                }
-            }
-        } else {
-
-            movieDao.insert(Movie(title = movieTitle, directorId = directorId, latVal=latlongvalue,distSpinner=distSpinner))
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
-        }*/
-
-        /*   if (distSpinnerValue != null) {
-               // clicked on item row -> update
-               val movieToUpdate = movieDao.findMovieByTitle(distSpinnerValue)
-               if (movieToUpdate != null) {
-                   if (movieToUpdate.distSpinner != distSpinner) {
-                       movieToUpdate.distSpinner = distSpinner
-                       if (directorId != -1L) {
-                           movieToUpdate.distSpinner = distSpinner
-                       }
-                       movieDao.update(movieToUpdate)
-                   }
-               }
-           } else {
-               // we can have many movies with same title but different director
-               movieDao.insert(Movie(title = movieTitle, directorId = directorId, latVal=latlongvalue,distSpinner=distSpinner))
-               val intent = Intent(this,MainActivity::class.java)
-               startActivity(intent)
-           }*/
-
 
     }
 
-
-    override fun onTimeRangeSelected(
-        startHour: Int,
-        startMinute: Int,
-        endHour: Int,
-        endMinute: Int
-    ) {
-        var startHourString = startHour.toString()
-        var startMinuteString = startMinute.toString()
-        var endHourString = endHour.toString()
-        var endMinuteString = endMinute.toString()
-        when {
-            startHour < 9 -> startHourString = startHour.toString().prependZero()
-            startMinute < 9 -> startMinuteString = startMinute.toString().prependZero()
-            endHour < 9 -> endHourString = endHour.toString().prependZero()
-            endMinute < 9 -> endMinuteString = endMinute.toString().prependZero()
-        }
-
-        /* selected_text.text = getString(
-                 R.string.chosen_time_range,
-                 startHourString,
-                 startMinuteString,
-                 endHourString,
-                 endMinuteString
-         )*/
-//        txt_stime.text = startHourString + " " + startMinuteString
-//        txt_endtime.text = endHourString + " " + endMinuteString
-    }
-
-    private fun String.prependZero(): String {
-        return "0".plus(this)
-    }
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-        /*  if(position == 0)
-          {
-              distSpinner.setError("Please select Country")
-              spinner_site.setError("Please Select Site")
-          }
-          else
-          {
-              distSpinnerValue = parent!!.getItemAtPosition(position).toString()
-              siteSpinnerValue= parent!!.getItemAtPosition(position).toString()
-              Log.d("spinnervalue", distSpinnerValue!!);
-              Log.d("spinnervalue", siteSpinnerValue!!);
-
-
-              distSpinner.setErrorEnabled(false)
-              distSpinner.setLabel("Country")
-              spinner_site.setErrorEnabled(false)
-              spinner_site.setLabel("Site")
-          }*/
-    }
-
-    fun loadJSONFromAsset(): String {
-        val json: String?
-        try {
-            val inputStream = assets.open("faundata.json")
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            val charset: Charset = Charsets.UTF_8
-            inputStream.read(buffer)
-            inputStream.close()
-            json = String(buffer, charset)
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            return ""
-        }
-        return json
-    }
-    private fun showColorDialog() {
-        val ft = supportFragmentManager.beginTransaction()
-        val dialogFragment =
-            ColorPickerDialog(this)
-        dialogFragment.setOnClickListener(object : ColorPickerDialog.OnClickListener {
-            override fun onClick(color: Int) {
-                contentRL.setBackgroundColor(getColor(color))
-            }
-
-        })
-        dialogFragment.show(ft, "dialog")
-    }
     private fun navigationItemSelect() {
         nav.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -766,14 +528,35 @@ class FaunaActivity :AppCompatActivity(), OnTimeRangeSelectedListener,
 
                 R.id.logout -> {
 
-                    //logout()
+                    AppPreferences.isLogin = false
+                    AppPreferences.username = ""
+                    AppPreferences.password = ""
+                    setupAlertDialogButton()
 
                 }
 
             }
-            drawerLayout.closeDrawer(GravityCompat.START)
+            bindinggView.contentRL.closeDrawer(GravityCompat.START)
             true
         }
     }
+
+    private fun setupAlertDialogButton() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure want to logout.")
+            .setPositiveButton("Ok") { dialog, which ->
+                // Toast.makeText(this, "Clicked discard", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton("Cancel") { dialog, which ->
+                //Toast.makeText(this, "Clicked cancel", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+            .show()
+    }
+
 
 }

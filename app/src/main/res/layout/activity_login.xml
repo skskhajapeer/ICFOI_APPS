@@ -41,11 +41,12 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
                 android:layout_marginTop="50dp"
-                android:textColorHint="#808080"
                 app:layout_constraintTop_toTopOf="parent"
                 >
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -68,16 +69,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="10dp"
-                android:textColorHint="#808080"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:layout_constraintTop_toBottomOf="@+id/layout_email"
                 >
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     android:gravity="center"
+                    app:endIconMode="password_toggle"
                     android:padding="10dp"
                     android:textColor="#000000"
                     android:textColorHint="#808080"
