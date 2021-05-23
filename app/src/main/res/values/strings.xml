@@ -18,6 +18,21 @@
     <string name="drawer_open">Drawer Open</string>
     <string name="close_drawer">Drawer_Close</string>
 
+
+    <string name="birds">Birds</string>
+    <string name="mammals">Mammals</string>
+    <string name="reptiles">Reptiles</string>
+    <string name="amphibians">Amphibians</string>
+    <string name="butterflies">Butterflies</string>
+    <string name="dragonefies">Dragonefies &amp; Damsefllies</string>
+    <string name="moths">Moths</string>
+    <string name="arachmids">Arachmids</string>
+    <string name="flies">Flies</string>
+    <string name="bees">Bees</string>
+    <string name="others">Others</string>
+    <string name="fishes">Fishes</string>
+
+
     <array name="tree_names">
         <item>Gyrocarpus americanus</item>
         <item>Albizia amara</item>
@@ -58,5 +73,18 @@
         <item>Setaria pumila</item>
         <item>Sida acuta</item>
         <item>Hyptis suaveolens"</item>
+    </array>
+
+    <array name="birds_family_names">
+    <item>Anatidae</item>
+    <item>Phasianidae</item>
+    <item>Phoenicopteridae</item>
+        <item>Columbidae</item>
+        <item>Caprimulgidae</item>
+        <item>Apodidae</item>
+        <item>Cuculidae</item>
+        <item>Rallidae</item>
+        <item>Gruidae</item>
+        <item>Otididae</item>
     </array>
 </resources>

@@ -22,7 +22,7 @@ class SelectionActivity : AppCompatActivity() {
     }
     fun faunaClick(view : View){
 
-        val intent = Intent(this,FaunaActivity::class.java)
+        val intent = Intent(this,SelectFauna::class.java)
         startActivity(intent)
     }
 

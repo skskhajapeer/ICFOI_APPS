@@ -71,7 +71,15 @@
 
             </intent-filter>
         </activity>
+        <activity android:name=".utils.FaunaAddingData"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeLatest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
 
+            </intent-filter>
+        </activity>
 
         <activity android:name=".ResultActivity"
             android:screenOrientation="portrait"
@@ -103,6 +111,15 @@
         </activity>
 
         <activity android:name=".StartupActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".SelectFauna"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

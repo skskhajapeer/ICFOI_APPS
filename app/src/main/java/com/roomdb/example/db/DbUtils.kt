@@ -8,10 +8,10 @@ suspend fun rePopulateDb(database: MoviesDatabase?) {
         withContext(Dispatchers.IO) {
             val movieDao: MovieDao = db.movieDao()
             val directorDao: DirectorDao = db.directorDao()
-
+            val faunDataDao:FaunDataDao=db.faunDao()
             movieDao.deleteAll()
             directorDao.deleteAll()
-
+            faunDataDao.deleteAll()
          /*   val directorOne = Director(fullName = "Adam McKay")
             val directorTwo = Director(fullName = "Denis Villeneuve", age = 35)
             val directorThree = Director(fullName = "Morten Tyldum", age = 26)

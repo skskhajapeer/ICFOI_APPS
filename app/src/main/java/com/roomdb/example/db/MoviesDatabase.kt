@@ -15,11 +15,12 @@ import kotlinx.coroutines.*
 /**
  * @author Antonina
  */
-@Database(entities = [Movie::class, Director::class], version = 1)
+@Database(entities = [Movie::class, Director::class,FaunaAdding::class], version = 1)
 abstract class MoviesDatabase : RoomDatabase() {
 
     abstract fun movieDao(): MovieDao
     abstract fun directorDao(): DirectorDao
+    abstract fun faunDao(): FaunDataDao
 
     companion object {
         private var INSTANCE: MoviesDatabase? = null
@@ -29,7 +30,11 @@ abstract class MoviesDatabase : RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(MoviesDatabase::class.java) {
                     if (INSTANCE == null) {
-                        INSTANCE = Room.databaseBuilder(context.applicationContext, MoviesDatabase::class.java, DB_NAME)
+                        INSTANCE = Room.databaseBuilder(
+                            context.applicationContext,
+                            MoviesDatabase::class.java,
+                            DB_NAME
+                        )
                             //.allowMainThreadQueries() // Uncomment if you don't want to use RxJava or coroutines just yet (blocks UI thread)
                             .addCallback(object : Callback() {
                                 override fun onCreate(db: SupportSQLiteDatabase) {

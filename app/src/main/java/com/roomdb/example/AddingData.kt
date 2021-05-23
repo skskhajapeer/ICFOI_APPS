@@ -607,6 +607,7 @@ class AddingData : AppCompatActivity(), OnTimeRangeSelectedListener {
                     divVal = division,
                     rfBlock = rfblock,
                     range = range,
+
                     beatName = beat,
                     areaName = area,
                     comptName = compt

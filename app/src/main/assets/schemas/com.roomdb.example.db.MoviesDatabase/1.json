@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "5daeb73d05abb9d0a5904f30c4f8c4e5",
+    "identityHash": "66d901c73d234f6aa75652c2874f530d",
     "entities": [
       {
         "tableName": "movie",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cDate` TEXT NOT NULL, `title` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `latVal` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `siteSpinner` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL, `divVal` TEXT NOT NULL, `rfBlock` TEXT NOT NULL, `range` TEXT NOT NULL, `beatName` TEXT NOT NULL, `areaName` TEXT NOT NULL, `comptName` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cDate` TEXT NOT NULL, `distSpinner` TEXT NOT NULL, `divVal` TEXT NOT NULL, `rfBlock` TEXT NOT NULL, `range` TEXT NOT NULL, `beatName` TEXT NOT NULL, `areaName` TEXT NOT NULL, `comptName` TEXT NOT NULL, `startTimer` TEXT NOT NULL, `endTimer` TEXT NOT NULL, `title` TEXT NOT NULL, `latVal` TEXT NOT NULL, `obsvrval` TEXT NOT NULL, `botVal` TEXT NOT NULL, `treeName` TEXT NOT NULL, `gbhVal` TEXT NOT NULL, `heightVal` TEXT NOT NULL, `directorId` INTEGER NOT NULL, `siteSpinner` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -21,74 +21,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "title",
-            "columnName": "title",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "directorId",
-            "columnName": "directorId",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "latVal",
-            "columnName": "latVal",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
             "fieldPath": "distSpinner",
             "columnName": "distSpinner",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "siteSpinner",
-            "columnName": "siteSpinner",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "startTimer",
-            "columnName": "startTimer",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "obsvrval",
-            "columnName": "obsvrval",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "endTimer",
-            "columnName": "endTimer",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "botVal",
-            "columnName": "botVal",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "treeName",
-            "columnName": "treeName",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "gbhVal",
-            "columnName": "gbhVal",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "heightVal",
-            "columnName": "heightVal",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -125,6 +59,72 @@
           {
             "fieldPath": "comptName",
             "columnName": "comptName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startTimer",
+            "columnName": "startTimer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endTimer",
+            "columnName": "endTimer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latVal",
+            "columnName": "latVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "obsvrval",
+            "columnName": "obsvrval",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "botVal",
+            "columnName": "botVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "treeName",
+            "columnName": "treeName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gbhVal",
+            "columnName": "gbhVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightVal",
+            "columnName": "heightVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "directorId",
+            "columnName": "directorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "siteSpinner",
+            "columnName": "siteSpinner",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -561,12 +561,89 @@
           }
         ],
         "foreignKeys": []
+      },
+      {
+        "tableName": "faunadd",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `slno` TEXT NOT NULL, `cdate` TEXT NOT NULL, `gpsVal` TEXT NOT NULL, `siteVal` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "mid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "slno",
+            "columnName": "slno",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdate",
+            "columnName": "cdate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsVal",
+            "columnName": "gpsVal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "siteVal",
+            "columnName": "siteVal",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "mid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_faunadd_slno",
+            "unique": false,
+            "columnNames": [
+              "slno"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_faunadd_slno` ON `${TABLE_NAME}` (`slno`)"
+          },
+          {
+            "name": "index_faunadd_cdate",
+            "unique": false,
+            "columnNames": [
+              "cdate"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_faunadd_cdate` ON `${TABLE_NAME}` (`cdate`)"
+          },
+          {
+            "name": "index_faunadd_gpsVal",
+            "unique": false,
+            "columnNames": [
+              "gpsVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_faunadd_gpsVal` ON `${TABLE_NAME}` (`gpsVal`)"
+          },
+          {
+            "name": "index_faunadd_siteVal",
+            "unique": false,
+            "columnNames": [
+              "siteVal"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_faunadd_siteVal` ON `${TABLE_NAME}` (`siteVal`)"
+          }
+        ],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5daeb73d05abb9d0a5904f30c4f8c4e5')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '66d901c73d234f6aa75652c2874f530d')"
     ]
   }
 }
