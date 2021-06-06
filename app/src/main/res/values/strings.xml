@@ -45,7 +45,10 @@
         <item>Grewia flavescens"</item>
     </array>
 
-
+    <array name="birds_new_names">
+        <item>Northern Pintail</item>
+        <item>Common Teal</item>
+    </array>
     <array name="herbs_names">
         <item>Eriocaulon sp</item>
         <item>Hyptis suaveolens</item>
@@ -75,16 +78,463 @@
         <item>Hyptis suaveolens"</item>
     </array>
 
+
+   <!-- <array name="odonata_common_names">
+        <item>Rusty darner</item>
+        <item>Blue-tailed green darner</item>
+        <item>Blue darner</item>
+        <item>Common clubtail</item>
+        <item>Trumpet tail</item>
+        <item>Little blue marsh hawk</item>
+        <item>Ditch jewel</item>
+        <item>Granite ghost</item>
+        <item>Ruddy marsh skimmer</item>
+        <item>Ground skimmer</item>
+        <item>Pied paddy skimmer</item>
+        <item>Blue marsh hawk</item>
+        <item>Crimson-tailed marsh hawk</item>
+        <item>Green marsh hawk</item>
+        <item>Wandering glider</item>
+        <item>Common picture wing</item>
+        <item>Crimson marsh glider</item>
+        <item>Long-legged marsh glider</item>
+        <item>Pigmy dartlet</item>
+        <item>Coromandel marsh dart</item>
+        <item>Rusty marsh dart</item>
+        <item>Unknown</item>
+        <item>Golden dartlet</item>
+        <item>Senegal golden dartlet</item>
+        <item>Elegant sprite</item>
+        <item>Blue grass dartlet</item>
+        <item>Pixie dartlet</item>
+        <item>Blue bush dart</item>
+    </array>-->
+   <!-- <array name="moths_common_names">
+        <item>Hyphormides argentipunctata</item>
+        <item>Hyblaea puera</item>
+        <item>Hypsopygia mauritialis</item>
+        <item>Pyrausta panopealis</item>
+        <item>Agathodes ostentalis</item>
+        <item>Antigastra catalaunalis</item>
+        <item>Botyodes asialis</item>
+        <item>Botyodes flavibasalis</item>
+        <item>Cydalima laticostalis</item>
+        <item>Diaphania indica</item>
+        <item>Glyphodes bivitralis</item>
+        <item>Maruca vitrata</item>
+        <item>Pygospila tyres</item>
+        <item>Spoladea recurvalis</item>
+        <item>Eupterote lineosa</item>
+        <item>Bombyx mori</item>
+        <item>Trilocha varians</item>
+        <item>Actias selene</item>
+        <item>Antheraea mylitta</item>
+        <item>Marumba dyras</item>
+        <item>Marumba indicus</item>
+        <item>Acherontia lachesis</item>
+        <item>Acherontia Styx</item>
+        <item>Daphnis nerii</item>
+        <item>Nephele hespera</item>
+        <item>Theretra alecto</item>
+        <item>Acherontia Iachesis</item>
+        <item>Acherontia styx</item>
+        <item>Daphnis nerii</item>
+        <item>Nephele hespera</item>
+        <item>Theretra alecto</item>
+        <item>Micronia aculeata</item>
+        <item>Chiasmia cymatodes</item>
+        <item>Chiasmia fidoniata</item>
+        <item>Zeheba aureata</item>
+        <item>Agathia laetata</item>
+        <item>Pingasa ruginaria</item>
+        <item>Perina nuda</item>
+        <item>Aloa lactinea</item>
+        <item>Amerila astrea</item>
+        <item>Mangina argus</item>
+        <item>Olepa ricini</item>
+        <item>Hypena laceratalis</item>
+        <item>Eudocima materna</item>
+        <item>Eudocima phalonia</item>
+        <item>Achaeajanata</item>
+        <item>Achaea serva</item>
+        <item>Bastilla crameri</item>
+        <item>Erebus macrops</item>
+        <item>Grammodes geometrica</item>
+        <item>Serrodes campana</item>
+        <item>Xanthodes intersepta</item>
+        <item>Xanthodes transversa</item>
+        <item>Helicoverpa armi era</item>
+        <item>Heliothis irrorata</item>
+        <item>Agrotis segetum</item>
+        <item>Polytela gloriosae</item>
+    </array>
+
+    <array name="butterflies_common_names">
+        <item>Dinghy Scrub Hopper </item>
+        <item>Bush Hopper</item>
+        <item>Brown Awl</item>
+        <item>Rice Swift</item>
+        <item>Spotted Angle</item>
+        <item>Golden Angle</item>
+        <item>Dakhan Spotted Flat</item>
+        <item>Common Spotted Flat</item>
+        <item>Tricolour Pied Flat</item>
+        <item>Giant Red Eye</item>
+        <item>African Marbled Skipper</item>
+        <item>Common Awl</item>
+        <item>Common Banded Awl</item>
+        <item>Chestnut Bob</item>
+        <item>Common Red Eye</item>
+        <item>Restricted Demon</item>
+        <item>Common Banded Demon</item>
+        <item>Conjoined Swift</item>
+        <item>Small Branded Swift</item>
+        <item>Fulvous Pied Flat</item>
+        <item>Indian Skipper</item>
+        <item>Indian Palm Bob</item>
+        <item>Angled Flat/ Black Ankle</item>
+        <item>Dark Palm-Dart</item>
+        <item>Pale Palm Dart</item>
+        <item>Grass Demon</item>
+        <item>Common Hedge Blue</item>
+        <item>Indian Purple Leaf Blue</item>
+        <item>Pointed Ciliate Blue</item>
+        <item>Large Oak Blue</item>
+        <item>Centaur Oakblue</item>
+        <item>Western Centaur Oak Blue</item>
+        <item>African Babul Blue</item>
+        <item>Bright Babul Blue</item>
+        <item>Dull Babul Blue</item>
+        <item>Angled Pierrot</item>
+        <item>Elbow Pierrot</item>
+        <item>Common Pierrot</item>
+        <item>Forget-me-not</item>
+        <item>Lime Blue</item>
+        <item>Plains Cupid</item>
+        <item>Small Cupid</item>
+        <item>Angled Sunbeam</item>
+        <item>Indian Sunbeam</item>
+        <item>Banded Blue Pierrot</item>
+        <item>Gram Blue</item>
+        <item>Indian Cupid</item>
+        <item>Grass Jewel</item>
+        <item>Metallic Cerulean</item>
+        <item>Dark Cerulean</item>
+        <item>Common Cerulean</item>
+        <item>Pea Blue</item>
+        <item>Zebra Blue</item>
+        <item>Yamfly</item>
+        <item>Dinghy Lineblue</item>
+        <item>Tailless Lineblue</item>
+        <item>Common Lineblue</item>
+        <item>Pale Grass Blue</item>
+        <item>Indian Red Flash</item>
+        <item>Slate Flash</item>
+        <item>Indigo Flash</item>
+        <item>Monkey Puzzle</item>
+        <item>Apefly</item>
+        <item>Scarce Shot Silverline</item>
+        <item>Shot Silverline</item>
+        <item>Common Silverline</item>
+        <item>Peacock Royal</item>
+        <item>Plains Blue Royal</item>
+        <item>Red Pierrot</item>
+        <item>Striped Pierrot</item>
+        <item>White Hedge Blue</item>
+        <item>Common Guava Blue</item>
+        <item>Silver Streaked Acacia Blue</item>
+        <item>Dark Grass Blue</item>
+        <item>Lesser Grass Blue</item>
+        <item>Tiny Grass Blue</item>
+        <item>Tawny Coster</item>
+        <item>Angled Castor</item>
+        <item>Common Castor</item>
+        <item>ColourSergeant</item>
+        <item>Comrnon Sergeant</item>
+        <item>Joker</item>
+        <item>Tawny Rajah</item>
+        <item>Plain Tawny Rajah</item>
+        <item>Black Rajah</item>
+        <item>Plain Tiger</item>
+        <item>Stripped Tiger</item>
+        <item>Common Palmfly</item>
+        <item>Common Indian Crow</item>
+        <item>Common Baron</item>
+        <item>Great Eggfly</item>
+        <item>Danaid Eggfly</item>
+        <item>Peacock Pansy</item>
+        <item>Grey Pansy</item>
+        <item>Yellow Pansy</item>
+        <item>Chocolate Pansy</item>
+        <item>Lemon Pansy</item>
+        <item>Blue Pansy</item>
+        <item>Yellow Jack Sailor</item>
+        <item>Bamboo Treebrown</item>
+        <item>Common Treebrown</item>
+        <item>Lernon Pansy</item>
+        <item>Common Evening brown</item>
+        <item>Dark Evening Brown</item>
+        <item>Commander</item>
+        <item>Dark-brand Bush Brown</item>
+        <item>Common Bushbrown</item>
+        <item>Tamil Bushbrown</item>
+        <item>Common Sailor</item>
+        <item>Nigger</item>
+        <item>Common Lascar</item>
+        <item>Common Leopard</item>
+        <item>Common Nawab</item>
+        <item>Glassy Tiger</item>
+        <item>Baronet</item>
+        <item>Grey Count</item>
+        <item>Blue Tiger</item>
+        <item>Dark Blue Tiger</item>
+        <item>Painted Lady</item>
+        <item>Common Three-ring</item>
+        <item>Common Five-ring</item>
+        <item>Common Four-ring</item>
+        <item>Tailed Jay</item>
+        <item>Common Jay</item>
+        <item>Spot Swordtail</item>
+        <item>Common Rose</item>
+        <item>Crimson Rose</item>
+        <item>Common Mime</item>
+        <item>Common Banded Peacock</item>
+        <item>Lime Butterfly</item>
+        <item>Red Helen</item>
+        <item>Blue Mormon</item>
+        <item>Common Mormon</item>
+        <item>Common Albatross</item>
+        <item>Striped Albatross</item>
+        <item>Pioneer</item>
+        <item>Common Emigrant</item>
+        <item>Mottled Emigrant</item>
+        <item>Common Gull</item>
+        <item>Large Salmon Arab</item>
+        <item>Crimson tip</item>
+        <item>Small Orange tip</item>
+        <item>Indian Jezebel</item>
+        <item>One spot Grass Yellow</item>
+        <item>Three spot Grass Yellow</item>
+        <item>Small Grass Yellow</item>
+        <item>Common Grass Yellow</item>
+        <item>Spotless Grass Yellow</item>
+        <item>Great Orange tip</item>
+        <item>White Orange tip</item>
+        <item>Yellow Orange tip</item>
+        <item>Psyche</item>
+        <item>Indian Wanderer</item>
+        <item>Indian Cabbage White</item>
+    </array>
+
+    <array name="amphibians_common_names">
+        <item>Günther's Toad</item>
+        <item>Ferguson's Toad</item>
+        <item>Marbled Toad</item>
+        <item>Common Indian Toad</item>
+        <item>Indian Skipper Frog</item>
+        <item>Indian Pond Frog</item>
+        <item>Indian Cricket Frog</item>
+        <item>Jerdon's Bullfrog</item>
+        <item>Indian Bullfrog</item>
+        <item>Indian Burrowing Frog</item>
+        <item>Ornate Narrow mouthed Frog</item>
+        <item>Red Narrow mouthed Frog</item>
+        <item>Indian Balloon Frog</item>
+        <item>Marbled Balloon Frog</item>
+        <item>Indian Painted Frog</item>
+        <item>Marbled Narrow-mouthed Frog</item>
+        <item>Common Tree Frog</item>
+    </array>
+
+    <array name="reptiles_common_names">
+        <item>Oriental Garden Lizard</item>
+        <item>Roux's Forest Lizard</item>
+        <item>South Indian Rock Agama</item>
+        <item>Blanford's Rock Agama</item>
+        <item>Fan-throated Lizard</item>
+        <item>Red Sand Boa</item>
+        <item>Common Sand Boa</item>
+        <item>Indian Chameleon</item>
+        <item>Green Vine Snake</item>
+        <item>Banded Racer</item>
+        <item>Forsten's Cat Snake</item>
+        <item>Common Cat Snake</item>
+        <item>Indian Egg Eater</item>
+        <item>Common Trinket</item>
+        <item>Common Bronzeback Tree Snake</item>
+        <item>Common Bridal Snake</item>
+        <item>Indian Wolf Snake</item>
+        <item>Yellow-collared Wolf Snake</item>
+        <item>Yellow-spotted Wolf Snake</item>
+        <item>Barred Wolf Snake</item>
+        <item>Banded Kukri Snake</item>
+        <item>Russell's Kukri Snake</item>
+        <item>NagarjunsagarRacer</item>
+        <item>Stout Sand Snake</item>
+        <item>Indian Rat Snake</item>
+        <item>Dumeril's Black headed Snake</item>
+        <item>Mugger Crocodile</item>
+        <item>Common Krait</item>
+        <item>Banded Krait</item>
+        <item>Indian (Spectacled) Cobra</item>
+        <item>Brook's House Gecko</item>
+        <item>Yellow-bellied Gecko</item>
+        <item>Common House Gecko</item>
+        <item>Giant Leaf-toed Gecko</item>
+        <item>Leschenaultts Leaf -toed Gecko</item>
+        <item>Termite Hill Gecko</item>
+        <item>Truetlerts Gecko</item>
+        <item>Indian Black Turtle</item>
+        <item>Indian Tent Turtle</item>
+        <item>Snake-eyed Lacerta</item>
+        <item>Leschenault's snake Eye</item>
+        <item>Green Keelback</item>
+        <item>Buff-striped Keelback</item>
+        <item>Checkered Keelback</item>
+        <item>Olive Keelback</item>
+        <item>Indian Rock Python</item>
+        <item>Keeled Indian Skink</item>
+        <item>Bronze Grass Skink</item>
+        <item>Sharma's Skink</item>
+        <item>Spotted Supple Skink</item>
+        <item>Indian Star Tortoise</item>
+        <item>Indian Flap-shell Turtle</item>
+        <item>Indian Soft-shell Turtle</item>
+        <item>Leith's Soft-shell Turtle</item>
+        <item>BrahminyWorm Snake</item>
+        <item>Beaked Worm Snake</item>
+        <item>Bengal Monitor</item>
+        <item>Russell's Viper</item>
+        <item>Saw-scaled Viper</item>
+        <item>Bamboo Pit Viper</item>
+    </array>
+-->
+
+<!--
+    <array name="mammals_common_names">
+        <item>Spotted Deer</item>
+        <item>Sambar</item>
+        <item>Wild boar</item>
+        <item>Four-Horned Antelope</item>
+        <item>Nilgai</item>
+        <item>Black Buck</item>
+        <item>Indian Gazelle</item>
+        <item>Indian Bison</item>
+        <item>Mouse deer</item>
+        <item>Asian Palm Civet</item>
+        <item>Small Indian Civet</item>
+        <item>Grey Wolf</item>
+        <item>Jungle Cat</item>
+        <item>Indian grey Mongoose</item>
+        <item>Ruddy Mongoose</item>
+        <item>Sloth Bear</item>
+        <item>Indian smooth coated Otter</item>
+        <item>Honey badger</item>
+        <item>Indian Leopard</item>
+        <item>Rusty-spotted Cat</item>
+        <item>Indian Fox</item>
+        <item>Indian Jackal</item>
+        <item>Bengal Tiger</item>
+        <item>Striped Hyaena</item>
+        <item>Greater Short-nosed Fruit Bat</item>
+        <item>Indian Flying Fox</item>
+        <item>Indian Fulvous Fruit Bat</item>
+        <item>Fulvus Leaf nosed Bat</item>
+        <item>Indian Leaf-nosed Bat</item>
+        <item>Schneider's Leaf-nosed Bat</item>
+        <item>Greater False Vampire Bat</item>
+        <item>Lesser Mouse-tailed Bat</item>
+        <item>Black-beared Tomb Bat</item>
+        <item>Long-winged Tomb Bat</item>
+        <item>Naked-rumped Tomb Bat</item>
+        <item>Egyptian Free-tailed Bat</item>
+        <item>Greater Asiatic Yellow House Bat</item>
+        <item>Lesser Asiatic Yellow House Bat</item>
+        <item>Japanese pipistrelle</item>
+        <item>Kelaart's pipistrelle</item>
+        <item>Indian pipistrelle</item>
+        <item>Least pipistrelle</item>
+        <item>Asian House Shrew</item>
+        <item>Indian Hare</item>
+        <item>Indian Pangolin</item>
+        <item>Rhesus macaque</item>
+        <item>Bonnet macaque</item>
+        <item>Northern Plains Gray Langur</item>
+        <item>Southern Plains Gray Langur</item>
+        <item>Three striped Palm Squirrel</item>
+        <item>Five striped Palm Squirrel</item>
+        <item>Indian Gaint Squirrel</item>
+        <item>Indian crested Porcupine</item>
+        <item>Indian gerbil</item>
+        <item>Lesser bandi coot Rat </item>
+        <item>Greater bandi coot Rat </item>
+        <item>Field Mouse</item>
+        <item>House Mouse</item>
+        <item>House Rat</item>
+        <item>Madras tree shrew</item>
+    </array>
+-->
+
+
     <array name="birds_family_names">
-    <item>Anatidae</item>
-    <item>Phasianidae</item>
-    <item>Phoenicopteridae</item>
-        <item>Columbidae</item>
-        <item>Caprimulgidae</item>
-        <item>Apodidae</item>
-        <item>Cuculidae</item>
-        <item>Rallidae</item>
-        <item>Gruidae</item>
-        <item>Otididae</item>
+        <item>Anas acuta</item>
+        <item>Anas crecca</item>
+        <item>Phoenicopteridae</item>
+        <item>Anas platyrhynchos</item>
+        <item>Anas poecilorhyncha</item>
+        <item>Anser indicus</item>
+        <item>Aythya ferina</item>
+        <item>Aythya fuligula</item>
+        <item>Aythya nyroca</item>
+        <item>Dendrocygna bicolor</item>
+        <item>Dendrocygna javanica</item>
+        <item>Mareca penelope</item>
+        <item>Mareca strepera</item>
+        <item>Netta/Rhodonessa rufina</item>
+        <item>Nettapus coromandelianus</item>
+        <item>Sarkidiornis melanotos</item>
+        <item>Spatula clypeata</item>
+        <item>Spatula querquedula</item>
+        <item>Tadorna ferruginea</item>
+        <item>Coturnix coromandelica</item>
+        <item>Francolinus pictus</item>
+        <item>Francolinus pondicerianus</item>
+        <item>Galloperdix lunulata</item>
+        <item>Galloperdix spadicea</item>
+        <item>Gallus sonneratii</item>
+        <item>Pavo cristatus</item>
+        <item>Perdicula argoondah</item>
+        <item>Perdicula asiatica</item>
+        <item>Tachybaptus ruficollis</item>
+        <item>Chalcophaps indica</item>
+        <item>Ducula aenea</item>
+        <item>Streptopelia chinensis</item>
+        <item>Streptopelia decaocto</item>
+        <item>Streptopelia orientalis</item>
+        <item>Streptopelia tranquebarica</item>
+        <item>Treron bicinctus</item>
+        <item>Treron curvirostra</item>
+        <item>Treron phoenicopterus</item>
+        <item>Pterocles exustus</item>
+        <item>Pterocles indicus</item>
+        <item>Caprimulgus affinis</item>
+        <item>Caprimulgus asiaticus</item>
+        <item>Caprimulgus atripennis</item>
+        <item>Caprimulgus indicus</item>
+        <item>Apus affinis</item>
+        <item>Apus apus</item>
+        <item>Cypsiurus balasiensis</item>
+        <item>Hemiprocne coronata</item>
+        <item>Tachymarptis melba</item>
+        <item>Cacomantis passerinus</item>
+        <item>Centropus bengalensis</item>
+        <item>Centropus sinensis</item>
+        <item>Clamator jacobinus</item>
+        <item>Cuculus canorus</item>
+        <item>Cuculus micropterus</item>
+        <item>Eudynamys scolopaceus</item>
+        <item>Hierococcyx varius</item>
+        <item>Phaenicophaeus viridirostris</item>
+        <item>Phaenicophaeus viridirostris</item>
     </array>
 </resources>

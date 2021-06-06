@@ -12,10 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.roomdb.example.FaunaActivity;
 import com.roomdb.example.R;
 import com.roomdb.example.utils.FaunaAddingData;
 import com.roomdb.example.utils.ItemClick;
+import com.roomdb.faunadb.FaunaActivity;
 
 import java.util.ArrayList;
 
@@ -57,7 +57,8 @@ public class FaunaAdapter extends RecyclerView.Adapter<FaunaAdapter.ViewHolder>{
             public void onClick(View view) {
 
 
-                Intent faunaItent=new Intent(context, FaunaAddingData.class);
+                Intent faunaItent=new Intent(context,
+                        FaunaActivity.class);
                 faunaItent.putExtra("textValue",imageTitles[position]);
                 context.startActivity(faunaItent);
             }

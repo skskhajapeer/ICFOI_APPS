@@ -81,11 +81,16 @@ class FaunaAddingData : AppCompatActivity() {
 
         val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         val currentDate = current.format(formatter)
+
         Log.d("date",currentDate)
         dateValue=currentDate
+
+        bindinggView.txtDate.setText(dateValue)
+
+
         if (faunaTypeValue == "Birds") {
             val treeNames =
-                arrayOf<String>(*resources.getStringArray(R.array.birds_family_names))
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
 
             val botanicalTreeAdapter = ArrayAdapter(
                 applicationContext,
@@ -96,6 +101,212 @@ class FaunaAddingData : AppCompatActivity() {
             bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
 
         }
+
+
+        if (faunaTypeValue == "Mammals") {
+            val treeNames =
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
+
+            val botanicalTreeAdapter = ArrayAdapter(
+                applicationContext,
+                android.R.layout.simple_spinner_item,
+                treeNames
+            )
+            botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+        }
+
+        if (faunaTypeValue == "Reptiles") {
+            val treeNames =
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
+
+            val botanicalTreeAdapter = ArrayAdapter(
+                applicationContext,
+                android.R.layout.simple_spinner_item,
+                treeNames
+            )
+            botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+        }
+
+        if (faunaTypeValue == "Amphibians") {
+            val treeNames =
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
+
+            val botanicalTreeAdapter = ArrayAdapter(
+                applicationContext,
+                android.R.layout.simple_spinner_item,
+                treeNames
+            )
+            botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+        }
+
+        if (faunaTypeValue == "Butterflies") {
+            val treeNames =
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
+
+            val botanicalTreeAdapter = ArrayAdapter(
+                applicationContext,
+                android.R.layout.simple_spinner_item,
+                treeNames
+            )
+            botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+        }
+
+        if (faunaTypeValue == "Moths") {
+            val treeNames =
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
+
+            val botanicalTreeAdapter = ArrayAdapter(
+                applicationContext,
+                android.R.layout.simple_spinner_item,
+                treeNames
+            )
+            botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+        }
+
+        if (faunaTypeValue == "Arachmids") {
+            val treeNames =
+                arrayOf<String>(*resources.getStringArray(R.array.birds_new_names))
+
+            val botanicalTreeAdapter = ArrayAdapter(
+                applicationContext,
+                android.R.layout.simple_spinner_item,
+                treeNames
+            )
+            botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+        }
+
+
+       /* bindinggView.txtFamily.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                    commonNameValue = parent!!.getItemAtPosition(position).toString()
+
+                    if (faunaTypeValue == "Birds") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.birds_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+
+                    if (faunaTypeValue == "Mammals") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.mammals_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+                    if (faunaTypeValue == "Reptiles") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.reptiles_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+                    if (faunaTypeValue == "Amphibians") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.amphibians_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+                    if (faunaTypeValue == "Butterflies") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.butterflies_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+                    if (faunaTypeValue == "Moths") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.moths_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+                    if (faunaTypeValue == "Arachmids") {
+                        val treeNames =
+                            arrayOf<String>(*resources.getStringArray(R.array.moths_common_names))
+
+                        val botanicalTreeAdapter = ArrayAdapter(
+                            applicationContext,
+                            android.R.layout.simple_spinner_item,
+                            treeNames
+                        )
+                        botanicalTreeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        bindinggView.txtFamily.setAdapter(botanicalTreeAdapter)
+
+                    }
+
+                }
+
+            }*/
+
+
         if (gpsValue != null) {
             bindinggView.txtGps.setText(gpsValue)
         }
@@ -129,24 +340,12 @@ class FaunaAddingData : AppCompatActivity() {
         }
 
 
-        bindinggView.btnSave.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
+        if (orderValue != null) {
+            bindinggView.etOrder.setText(orderValue)
+        }
 
-                saveMovie(
-
-
-
-                    slNoValue.toString(),currentDate.toString(),bindinggView.txtGps.text.toString(),
-                    bindinggView.txtSiteName.text.toString(), bindinggView.txtCompartment.text.toString(), bindinggView.txtBeatName.text.toString(),
-                    bindinggView.txtSection.text.toString(),bindinggView.txtRange.text.toString(),bindinggView.txtDivision.text.toString(),
-                    bindinggView.txtDist.text.toString(), "",
-                    "","","","", "","","")
-                siteInfo?.let { it1 ->
-                    preferenceHelper.setProfileData(it1)
-                }
-
-            }
-
+        if (numberValue != null) {
+            bindinggView.etNo.setText(numberValue)
         }
 
         val mDrawerToggle = ActionBarDrawerToggle(
@@ -232,7 +431,38 @@ class FaunaAddingData : AppCompatActivity() {
 
 
 
+/*
+        bindinggView.btnSave.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
 
+                saveMovie(
+
+
+
+                   */
+/* slNoValue.toString(),currentDate.toString(),bindinggView.txtGps.text.toString(),
+                    bindinggView.txtSiteName.text.toString(), bindinggView.txtCompartment.text.toString(), bindinggView.txtBeatName.text.toString(),
+                    bindinggView.txtSection.text.toString(),bindinggView.txtRange.text.toString(),bindinggView.txtDivision.text.toString(),
+                    bindinggView.txtDist.text.toString(), "",
+                    "","","","", "","","",""
+*//*
+
+
+                            slNoValue.toString(),currentDate.toString(),"dataone",
+                    "datatwo", "datathee", "datafour",
+                    "datafive","datasix","dataseven",
+                    "dataeight", "datanine",
+                    "dataten","dataeleven","datatwelve","datathirteen", "dataforteen",
+                    "datafifteen","datasixteen","dataseventeen"
+                )
+//                siteInfo?.let { it1 ->
+//                    preferenceHelper.setProfileData(it1)
+               // }
+
+            }
+
+        }
+*/
 
 
     }
@@ -298,7 +528,7 @@ class FaunaAddingData : AppCompatActivity() {
     fun setDataBasedOnSelection(siteInfo: Sites) {
         bindinggView.txtDist.text = siteInfo.district
         bindinggView.txtDivision.text = siteInfo.division
-        bindinggView.txtCompartment.text = siteInfo.compartment
+        //bindinggView.txtCompartment.text = siteInfo.compartment
         bindinggView.txtBeatName.text = siteInfo.beatName
         bindinggView.txtRange.text = siteInfo.range
 
@@ -339,13 +569,16 @@ class FaunaAddingData : AppCompatActivity() {
         startTimer: String,
         endTimer: String,
         movieTitle: String,
+
         latlongvalue: String,
         observerval: String,
         botanical: String,
         treeName: String,
         gbh: String,
+
         height: String,
-        siteSpinner: String
+        siteSpinner: String,
+        number:String
 
 
 
@@ -365,8 +598,8 @@ class FaunaAddingData : AppCompatActivity() {
             // clicked on item row -> update
             val movieToUpdate = movieDao.findMovieByTitle(slNoValue)
             if (movieToUpdate != null) {
-                if (movieToUpdate.title != cDate) {
-                    movieToUpdate.title = cDate
+                if (movieToUpdate.title != movieTitle) {
+                    movieToUpdate.title = movieTitle
                     if (directorId != -1L) {
                         movieToUpdate.directorId = directorId
                     }
@@ -376,10 +609,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(dateValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.latVal != distSpinner) {
-                        movieToUpdate.latVal = distSpinner
+                    if (movieToUpdate.cDate != cDate) {
+                        movieToUpdate.cDate = cDate
                         if (directorId != -1L) {
-                            movieToUpdate.latVal = distSpinner
+                            movieToUpdate.cDate = cDate
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -388,10 +621,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(gpsValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.obsvrval != division) {
-                        movieToUpdate.obsvrval = division
+                    if (movieToUpdate.startTimer != startTimer) {
+                        movieToUpdate.startTimer = startTimer
                         if (directorId != -1L) {
-                            movieToUpdate.obsvrval = division
+                            movieToUpdate.startTimer = startTimer
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -400,10 +633,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(siteNameValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.distSpinner != rfblock) {
-                        movieToUpdate.distSpinner = rfblock
+                    if (movieToUpdate.latVal != latlongvalue) {
+                        movieToUpdate.latVal = latlongvalue
                         if (directorId != -1L) {
-                            movieToUpdate.distSpinner = rfblock
+                            movieToUpdate.latVal = latlongvalue
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -412,10 +645,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(comptNoValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.siteSpinner != range) {
-                        movieToUpdate.siteSpinner = range
+                    if (movieToUpdate.comptName != compt) {
+                        movieToUpdate.comptName = compt
                         if (directorId != -1L) {
-                            movieToUpdate.siteSpinner = range
+                            movieToUpdate.comptName = compt
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -424,10 +657,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(beatNameValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.startTimer != beat) {
-                        movieToUpdate.startTimer = beat
+                    if (movieToUpdate.beatName != beat) {
+                        movieToUpdate.beatName = beat
                         if (directorId != -1L) {
-                            movieToUpdate.startTimer = beat
+                            movieToUpdate.beatName = beat
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -436,7 +669,7 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(sectionValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.endTimer != area) {
+                        if (movieToUpdate.endTimer != area) {
                         movieToUpdate.endTimer = area
                         if (directorId != -1L) {
                             movieToUpdate.endTimer = area
@@ -448,10 +681,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(rangeValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.botVal != compt) {
-                        movieToUpdate.botVal = compt
+                    if (movieToUpdate.range != range) {
+                        movieToUpdate.range = range
                         if (directorId != -1L) {
-                            movieToUpdate.botVal = compt
+                            movieToUpdate.range = range
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -460,10 +693,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(divisionValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.treeName != startTimer) {
-                        movieToUpdate.treeName = startTimer
+                    if (movieToUpdate.divVal != division) {
+                        movieToUpdate.divVal = division
                         if (directorId != -1L) {
-                            movieToUpdate.treeName = startTimer
+                            movieToUpdate.divVal = division
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -472,10 +705,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(districtValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.gbhVal != endTimer) {
-                        movieToUpdate.gbhVal = endTimer
+                    if (movieToUpdate.distSpinner != distSpinner) {
+                        movieToUpdate.distSpinner = distSpinner
                         if (directorId != -1L) {
-                            movieToUpdate.gbhVal = endTimer
+                            movieToUpdate.distSpinner = distSpinner
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -484,66 +717,66 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(transectIdValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != movieTitle) {
-                        movieToUpdate.heightVal = movieTitle
+                    if (movieToUpdate.heightVal != rfblock) {
+                        movieToUpdate.heightVal = rfblock
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = movieTitle
+                            movieToUpdate.heightVal = rfblock
                         }
                         movieDao.update(movieToUpdate)
                     }
                 }
             }
 
-            else if (scientificValue != null) {
+            /*else if (scientificValue != null) {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(scientificValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != latlongvalue) {
-                        movieToUpdate.heightVal = latlongvalue
+                    if (movieToUpdate.gbhVal != gbh) {
+                        movieToUpdate.gbhVal = gbh
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = latlongvalue
+                            movieToUpdate.gbhVal = gbh
                         }
                         movieDao.update(movieToUpdate)
                     }
                 }
-            }
+            }*/
 
             else if (commonNameValue != null) {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(commonNameValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != observerval) {
-                        movieToUpdate.heightVal = observerval
+                    if (movieToUpdate.rfBlock != observerval) {
+                        movieToUpdate.rfBlock = observerval
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = observerval
+                            movieToUpdate.rfBlock = observerval
                         }
                         movieDao.update(movieToUpdate)
                     }
                 }
             }
 
-            else if (familyValue != null) {
+           /* else if (familyValue != null) {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(familyValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != botanical) {
-                        movieToUpdate.heightVal = botanical
+                    if (movieToUpdate.areaName != botanical) {
+                        movieToUpdate.areaName = botanical
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = botanical
+                            movieToUpdate.areaName = botanical
                         }
                         movieDao.update(movieToUpdate)
                     }
                 }
-            }
+            }*/
 
             else if (orderValue != null) {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(orderValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != treeName) {
-                        movieToUpdate.heightVal = treeName
+                    if (movieToUpdate.treeName != treeName) {
+                        movieToUpdate.treeName = treeName
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = treeName
+                            movieToUpdate.treeName = treeName
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -554,10 +787,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(numberValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != gbh) {
-                        movieToUpdate.heightVal = gbh
+                    if (movieToUpdate.obsvrval != height) {
+                        movieToUpdate.obsvrval = height
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = gbh
+                            movieToUpdate.obsvrval = height
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -568,10 +801,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(numberValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != height) {
-                        movieToUpdate.heightVal = height
+                    if (movieToUpdate.botVal != siteSpinner) {
+                        movieToUpdate.botVal = siteSpinner
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = height
+                            movieToUpdate.botVal = siteSpinner
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -582,10 +815,10 @@ class FaunaAddingData : AppCompatActivity() {
                 // clicked on item row -> update
                 val movieToUpdate = movieDao.findMovieByTitle(numberValue)
                 if (movieToUpdate != null) {
-                    if (movieToUpdate.heightVal != siteSpinner) {
-                        movieToUpdate.heightVal = siteSpinner
+                    if (movieToUpdate.siteSpinner != number) {
+                        movieToUpdate.siteSpinner = number
                         if (directorId != -1L) {
-                            movieToUpdate.heightVal = siteSpinner
+                            movieToUpdate.siteSpinner = number
                         }
                         movieDao.update(movieToUpdate)
                     }
@@ -612,7 +845,6 @@ class FaunaAddingData : AppCompatActivity() {
                     divVal = division,
                     rfBlock = rfblock,
                     range = range,
-
                     beatName = beat,
                     areaName = area,
                     comptName = compt
