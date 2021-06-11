@@ -19,6 +19,8 @@ class LoginRepository {
 
         var loginTableModel: LiveData<List<LoginTableModel>>? = null
 
+        var userTableModel: LiveData<List<LoginTableModel>>? = null
+
         fun initializeDB(context: Context) : LoginDatabase {
             return LoginDatabase.getDataseClient(context)
         }
@@ -41,6 +43,15 @@ class LoginRepository {
             loginTableModel = loginDatabase!!.loginDao().getLoginDetails(username)
 
             return loginTableModel
+        }
+
+        fun getUserDetails(context: Context) : LiveData<List<LoginTableModel>>? {
+
+            loginDatabase = initializeDB(context)
+
+            userTableModel = loginDatabase!!.loginDao().getUserDetails()
+
+            return userTableModel
         }
 
     }

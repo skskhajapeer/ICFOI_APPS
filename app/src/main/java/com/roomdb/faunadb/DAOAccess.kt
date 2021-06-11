@@ -19,6 +19,7 @@ interface DAOAccess {
     fun getLoginDetails(username: String?) : LiveData<List<LoginTableModel>>
 
 
-    /*@get:Query("SELECT * FROM Login ORDER BY Username =:username ASC")
-    val allMovies: LiveData<List<LoginTableModel>>*/
+    @Query("SELECT * FROM Login")
+    fun getUserDetails() : LiveData<List<LoginTableModel>>
+
 }

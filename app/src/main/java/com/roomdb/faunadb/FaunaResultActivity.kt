@@ -59,12 +59,12 @@ class FaunaResultActivity :AppCompatActivity() {
 
 //        mToolbar.title = title
 //        setSupportActionBar(mToolbar)
-
+        initData()
         moviesListAdapter = FaunaListAdapter(this)
-        recyclerView.adapter = moviesListAdapter
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         recyclerView.layoutManager = LinearLayoutManager(this)
-        initData()
+        recyclerView.adapter = moviesListAdapter
+
     }
 
     /* private fun initToolbar(@NonNull title: String?) {
@@ -74,7 +74,7 @@ class FaunaResultActivity :AppCompatActivity() {
 
     private fun initData() {
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        loginViewModel.liveDataLogin?.observe(this,
+        loginViewModel.getUserDetails(this)?.observe(this,
             Observer { movies: List<LoginTableModel> ->
                 moviesList = movies
                moviesListAdapter.setMovieList(movies)

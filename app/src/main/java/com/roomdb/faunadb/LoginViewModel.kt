@@ -19,6 +19,7 @@ import com.roomdb.example.db.MoviesDatabase
 class LoginViewModel (application: Application) : AndroidViewModel(application)  {
 
     var liveDataLogin: LiveData<List<LoginTableModel>>? = null
+    var liveUserDetails: LiveData<List<LoginTableModel>>? = null
 
 
     private val movieDao: DAOAccess = LoginDatabase.getDataseClient(application).loginDao()
@@ -35,6 +36,11 @@ class LoginViewModel (application: Application) : AndroidViewModel(application) 
     fun getLoginDetails(context: Context, username: String) : LiveData<List<LoginTableModel>>? {
         liveDataLogin = LoginRepository.getLoginDetails(context, username)
         return liveDataLogin
+    }
+
+    fun getUserDetails(context: Context) : LiveData<List<LoginTableModel>>? {
+        liveUserDetails = LoginRepository.getUserDetails(context)
+        return liveUserDetails
     }
 
 }
